@@ -14,11 +14,12 @@ struct CalendarTimelineView: View {
     }()
     
     var body: some View {
-        VStack(spacing: 30) {
+        VStack(spacing: 32) {
             // Month Header (centered, no arrows)
             Text(dateFormatter.string(from: selectedDate))
-                .font(.system(size: 20, weight: .medium))
+                .font(.system(size: 22, weight: .semibold, design: .rounded))
                 .foregroundColor(.white)
+                .animation(.spring(response: 0.6, dampingFraction: 0.8, blendDuration: 0), value: selectedDate)
             
             // Swipable Calendar Container
             VStack(spacing: 12) {
@@ -124,6 +125,8 @@ struct CalendarDayView: View {
     let isToday: Bool
     let onTap: () -> Void
     
+    @State private var isPressed = false
+    
     private let dayFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "d"
@@ -134,16 +137,20 @@ struct CalendarDayView: View {
         Button(action: onTap) {
             ZStack {
                 // Background
-                RoundedRectangle(cornerRadius: 8)
+                RoundedRectangle(cornerRadius: 12)
                     .fill(backgroundColor)
-                    .frame(height: 50)
+                    .frame(height: 52)
+                    .scaleEffect(isPressed ? 0.95 : 1.0)
+                    .animation(.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0), value: isPressed)
                 
                 // Day number
                 Text(dayFormatter.string(from: date))
-                    .font(.system(size: 14, weight: hasVideo ? .semibold : .regular))
+                    .font(.system(size: 16, weight: hasVideo ? .bold : .medium, design: .rounded))
                     .foregroundColor(textColor)
+                    .scaleEffect(isPressed ? 0.9 : 1.0)
+                    .animation(.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0), value: isPressed)
                 
-                // Video indicator
+                // Video indicator - enhanced
                 if hasVideo {
                     VStack {
                         Spacer()
@@ -151,13 +158,22 @@ struct CalendarDayView: View {
                             Spacer()
                             Circle()
                                 .fill(Color.white)
-                                .frame(width: 6, height: 6)
-                                .offset(x: -2, y: -2)
+                                .frame(width: 8, height: 8)
+                                .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 1)
+                                .offset(x: -4, y: -4)
+                                .scaleEffect(isPressed ? 0.8 : 1.0)
+                                .animation(.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0), value: isPressed)
                         }
                     }
                 }
             }
         }
+        .buttonStyle(PlainButtonStyle())
+        .onLongPressGesture(minimumDuration: 0, maximumDistance: .infinity, pressing: { pressing in
+            withAnimation(.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0)) {
+                isPressed = pressing
+            }
+        }, perform: {})
         .disabled(!hasVideo)
     }
     
