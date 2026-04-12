@@ -8,10 +8,36 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(red: 0.1, green: 0.1, blue: 0.1).ignoresSafeArea()
+                Color(red: 0.06, green: 0.06, blue: 0.06).ignoresSafeArea()
                 
                 ScrollView {
                     VStack(spacing: 24) {
+                        // Profile Settings
+                        SettingsSection(title: "Profile") {
+                            VStack(spacing: 16) {
+                                HStack {
+                                    Text("Your name")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(.white)
+                                    Spacer()
+                                    TextField("Enter name", text: $appState.userName)
+                                        .font(.system(size: 16))
+                                        .foregroundColor(.white)
+                                        .multilineTextAlignment(.trailing)
+                                        .frame(maxWidth: 150)
+                                }
+                            }
+                        }
+                        
+                        // Appearance Settings
+                        SettingsSection(title: "Appearance") {
+                            VStack(spacing: 16) {
+                                Toggle("Dark mode", isOn: $appState.isDarkMode)
+                                    .font(.system(size: 16))
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        
                         // Notification Settings
                         SettingsSection(title: "Notifications") {
                             VStack(spacing: 16) {
@@ -63,15 +89,23 @@ struct SettingsView: View {
                             }
                         }
                     }
-                    .padding()
+                    .padding(.vertical)
+                    .padding(.horizontal, 24)
                 }
             }
             .navigationTitle("Settings")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitleDisplayMode(.inline)
             .preferredColorScheme(.dark)
         }
         .onChange(of: appState.notificationTime) { newTime in
-            notificationManager.scheduleDailyNotification(at: newTime, streak: streakManager.currentStreak)
+            notificationManager.scheduleDailyNotification(at: newTime, streak: streakManager.currentStreak, userName: appState.userName)
+        }
+        .onChange(of: appState.userName) { _ in
+            appState.saveUserDefaults()
+            notificationManager.scheduleDailyNotification(at: appState.notificationTime, streak: streakManager.currentStreak, userName: appState.userName)
+        }
+        .onChange(of: appState.isDarkMode) { _ in
+            appState.saveUserDefaults()
         }
         .onChange(of: appState.oneTakeMode) { _ in
             appState.saveUserDefaults()

@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct CalendarTimelineView: View {
     @EnvironmentObject var videoManager: VideoManager
@@ -16,12 +17,14 @@ struct CalendarTimelineView: View {
             HStack {
                 ForEach(["S", "M", "T", "W", "T", "F", "S"], id: \.self) { day in
                     Text(day)
-                        .font(.system(size: 12, weight: .medium))
+                        .font(.system(size: 14, weight: .medium, design: .rounded))
                         .foregroundColor(.gray)
                         .frame(maxWidth: .infinity)
-                        .frame(height: 20)
+                        .frame(height: 14)
+                        
                 }
             }
+            .padding(.horizontal, 20)
             
             // Horizontal paging months
             TabView(selection: $currentMonthIndex) {
@@ -31,15 +34,21 @@ struct CalendarTimelineView: View {
                         selectedDate: $selectedDate,
                         videoManager: videoManager,
                         onVideoTap: { video in
+                            let impact = UIImpactFeedbackGenerator(style: .medium)
+                            impact.impactOccurred()
                             selectedVideo = video
                             showingVideoPlayer = true
                         }
                     )
                     .tag(offset)
                 }
+                .onChange(of: currentMonthIndex) { _ in
+                    let impact = UIImpactFeedbackGenerator(style: .soft)
+                    impact.impactOccurred()
+                }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
-            .frame(height: 380)
+            .frame(height: 460)
         }
         .onAppear {
             currentMonthIndex = 0
@@ -61,6 +70,7 @@ struct CalendarTimelineView: View {
                 VideoPlayerView(videoURL: video.videoURL, entry: video)
             }
         }
+        .padding(.top, 16)
     }
 }
 
@@ -108,7 +118,7 @@ struct MonthGridView: View {
     }
     
     var body: some View {
-        LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 7), spacing: 12) {
+        LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 7), spacing: 18) {
             ForEach(calendarDays, id: \.self) { date in
                 let video = videoManager.getVideoForDate(date)
                 CalendarDayView(
@@ -118,6 +128,8 @@ struct MonthGridView: View {
                     isToday: calendar.isDateInToday(date),
                     isSelected: calendar.isDate(date, inSameDayAs: selectedDate)
                 ) {
+                    let impact = UIImpactFeedbackGenerator(style: .light)
+                    impact.impactOccurred()
                     selectedDate = date
                     if let video = video {
                         onVideoTap(video)
@@ -125,6 +137,7 @@ struct MonthGridView: View {
                 }
             }
         }
+        .padding(.horizontal, 20)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     

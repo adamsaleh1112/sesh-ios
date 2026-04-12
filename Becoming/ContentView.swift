@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct ContentView: View {
     @EnvironmentObject var appState: AppState
@@ -20,66 +21,53 @@ struct ContentView: View {
 struct MainView: View {
     @EnvironmentObject var videoManager: VideoManager
     @EnvironmentObject var streakManager: StreakManager
-    @State private var showingRecordingView = false
-    @State private var showingSettingsView = false
     @State private var selectedDate = Date()
     
     var body: some View {
+        TabView {
+            // Home Tab
+            HomeContentView(selectedDate: $selectedDate)
+                .tabItem {
+                    Image(systemName: "calendar")
+                }
+            
+            // Record Tab
+            RecordingView()
+                .tabItem {
+                    Image(systemName: "video.fill")
+                }
+            
+            // Settings Tab
+            SettingsView()
+                .tabItem {
+                    Image(systemName: "gearshape")
+                }
+        }
+        .tint(.white)
+    }
+}
+
+struct HomeContentView: View {
+    @Binding var selectedDate: Date
+    @EnvironmentObject var videoManager: VideoManager
+    @EnvironmentObject var streakManager: StreakManager
+    
+    var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            Color(red: 0.06, green: 0.06, blue: 0.06).ignoresSafeArea()
             
             VStack(spacing: 0) {
                 // Date Header
                 DateHeaderView(selectedDate: $selectedDate)
-                    .padding(.horizontal, 20)
-                    .padding(.top, 10)
+                    .padding(.horizontal, 24)
+                    .padding(.top, 20)
                 
-                // Calendar Timeline - expanded to take more vertical space
+                // Calendar Timeline - full width for seamless swiping
                 CalendarTimelineView(selectedDate: $selectedDate)
-                    .padding(.horizontal, 20)
                     .padding(.top, 30)
                 
                 Spacer()
             }
-            
-            // Bottom buttons
-            VStack {
-                Spacer()
-                HStack {
-                    // Settings Button - Liquid Glass style
-                    Button(action: {
-                        showingSettingsView = true
-                    }) {
-                        ZStack {
-                            Circle()
-                                .fill(.ultraThinMaterial)
-                                .background(Circle().fill(.white.opacity(0.05)))
-                                .frame(width: 56, height: 56)
-                            
-                            Image(systemName: "gearshape.fill")
-                                .font(.system(size: 22, weight: .semibold, design: .rounded))
-                                .foregroundStyle(.white)
-                                .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 1)
-                        }
-                    }
-                    .padding(.leading, 24)
-                    .padding(.bottom, 50)
-                    
-                    Spacer()
-                    
-                    FloatingRecordButton {
-                        showingRecordingView = true
-                    }
-                    .padding(.trailing, 24)
-                    .padding(.bottom, 50)
-                }
-            }
-        }
-        .fullScreenCover(isPresented: $showingRecordingView) {
-            RecordingView()
-        }
-        .sheet(isPresented: $showingSettingsView) {
-            SettingsView()
         }
     }
 }
@@ -110,21 +98,27 @@ struct DateHeaderView: View {
         HStack(alignment: .firstTextBaseline, spacing: 0) {
             // Month (grayed out)
             Text(monthNumber)
-                .font(.system(size: 64, weight: .bold, design: .rounded))
+                .font(.system(size: 64, weight: .bold))
+                //.fontWidth(.expanded)
+                .fontDesign(.rounded)
                 .foregroundColor(.white.opacity(0.4))
                 .transition(.asymmetric(insertion: .move(edge: .leading).combined(with: .opacity), removal: .move(edge: .trailing).combined(with: .opacity)))
                 .id("month-\(monthNumber)")
             
             // Day (white)
             Text(dayNumber)
-                .font(.system(size: 64, weight: .bold, design: .rounded))
+                .font(.system(size: 64, weight: .bold))
+                //.fontWidth(.expanded)
+                .fontDesign(.rounded)
                 .foregroundColor(.white)
                 .transition(.asymmetric(insertion: .scale(scale: 1.2).combined(with: .opacity), removal: .scale(scale: 0.8).combined(with: .opacity)))
                 .id("day-\(dayNumber)")
             
             // Year (grayed out)
             Text(yearNumber)
-                .font(.system(size: 64, weight: .bold, design: .rounded))
+                .font(.system(size: 64, weight: .bold))
+                //.fontWidth(.expanded)
+                .fontDesign(.rounded)
                 .foregroundColor(.white.opacity(0.4))
                 .transition(.asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity), removal: .move(edge: .leading).combined(with: .opacity)))
                 .id("year-\(yearNumber)")
@@ -144,6 +138,8 @@ struct FloatingRecordButton: View {
     
     var body: some View {
         Button(action: {
+            let impact = UIImpactFeedbackGenerator(style: .medium)
+            impact.impactOccurred()
             // Trigger action with subtle animation
             withAnimation(.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0)) {
                 action()

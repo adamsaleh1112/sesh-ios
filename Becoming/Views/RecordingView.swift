@@ -1,5 +1,6 @@
 import SwiftUI
 import AVFoundation
+import UIKit
 
 struct RecordingView: View {
     @Environment(\.dismiss) private var dismiss
@@ -20,7 +21,7 @@ struct RecordingView: View {
         ZStack {
             // Full screen camera preview at back
             ZStack {
-                Color.black
+                Color(red: 0.06, green: 0.06, blue: 0.06)
                 CameraPreviewView(cameraManager: cameraManager)
             }
             .ignoresSafeArea()
@@ -33,6 +34,8 @@ struct RecordingView: View {
                 // Header with duration counter
                 HStack {
                     Button("Cancel") {
+                        let impact = UIImpactFeedbackGenerator(style: .light)
+                        impact.impactOccurred()
                         dismiss()
                     }
                     .foregroundColor(.white)
@@ -57,7 +60,11 @@ struct RecordingView: View {
                     
                     // Camera flip button
                     if !videoManager.isRecording && !showSaveButton {
-                        Button(action: flipCamera) {
+                        Button(action: {
+                            let impact = UIImpactFeedbackGenerator(style: .light)
+                            impact.impactOccurred()
+                            flipCamera()
+                        }) {
                             Image(systemName: "camera.rotate.fill")
                                 .font(.system(size: 22))
                                 .foregroundColor(.white)
@@ -85,6 +92,8 @@ struct RecordingView: View {
                                 .foregroundColor(.white)
                             
                             Button(action: {
+                                let impact = UIImpactFeedbackGenerator(style: .medium)
+                                impact.impactOccurred()
                                 videoManager.saveVideo(url: url)
                                 streakManager.recordVideo()
                                 dismiss()
@@ -99,6 +108,8 @@ struct RecordingView: View {
                             }
                             
                             Button(action: {
+                                let impact = UIImpactFeedbackGenerator(style: .light)
+                                impact.impactOccurred()
                                 // Retake - reset and go again
                                 showSaveButton = false
                                 recordedVideoURL = nil
@@ -111,7 +122,11 @@ struct RecordingView: View {
                         }
                     } else {
                         // Record Button
-                        Button(action: toggleRecording) {
+                        Button(action: {
+                            let impact = UIImpactFeedbackGenerator(style: videoManager.isRecording ? .rigid : .medium)
+                            impact.impactOccurred()
+                            toggleRecording()
+                        }) {
                             ZStack {
                                 Circle()
                                     .fill(videoManager.isRecording ? Color.red : Color.white)

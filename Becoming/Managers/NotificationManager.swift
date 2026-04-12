@@ -35,12 +35,13 @@ class NotificationManager: ObservableObject {
         }
     }
     
-    func scheduleDailyNotification(at time: Date, streak: Int) {
+    func scheduleDailyNotification(at time: Date, streak: Int, userName: String = "") {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
         let content = UNMutableNotificationContent()
         let message = motivationalMessages.randomElement() ?? "Time to record your daily log."
-        content.title = "Becoming"
+        let title = userName.isEmpty ? "Becoming" : "Hey \(userName)"
+        content.title = title
         content.body = String(format: message, streak + 1)
         content.sound = .default
         

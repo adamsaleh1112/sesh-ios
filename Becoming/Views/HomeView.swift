@@ -8,7 +8,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.black.ignoresSafeArea()
+                Color(red: 0.06, green: 0.06, blue: 0.06).ignoresSafeArea()
                 
                 VStack(spacing: 30) {
                     // Header - Just the streak message now
