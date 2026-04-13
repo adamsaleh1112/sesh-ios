@@ -62,14 +62,14 @@ struct YourJourneyView: View {
                             JourneyStatRow(
                                 icon: "video.fill",
                                 iconColor: .blue,
-                                label: "Video entries".lowercased(if: appState.isLowercaseMode),
+                                label: "Video entries",
                                 value: "\(totalVideoEntries)"
                             )
                             
                             JourneyStatRow(
                                 icon: "calendar",
                                 iconColor: .gray,
-                                label: "Date started".lowercased(if: appState.isLowercaseMode),
+                                label: "Date started",
                                 value: dateStarted
                             )
                         }
@@ -81,28 +81,28 @@ struct YourJourneyView: View {
                             JourneyStatRow(
                                 icon: "star.fill",
                                 iconColor: .green,
-                                label: "Perfect days (10)".lowercased(if: appState.isLowercaseMode),
+                                label: "Perfect days (10)",
                                 value: "\(perfectDays)"
                             )
                             
                             JourneyStatRow(
                                 icon: "hand.thumbsup.fill",
                                 iconColor: .yellow,
-                                label: "Good days (7-9)".lowercased(if: appState.isLowercaseMode),
+                                label: "Good days (7-9)",
                                 value: "\(goodDays)"
                             )
                             
                             JourneyStatRow(
                                 icon: "minus.circle.fill",
                                 iconColor: .orange,
-                                label: "Mid days (5-6)".lowercased(if: appState.isLowercaseMode),
+                                label: "Mid days (5-6)",
                                 value: "\(midDays)"
                             )
                             
                             JourneyStatRow(
                                 icon: "hand.thumbsdown.fill",
                                 iconColor: .red,
-                                label: "Bad days (1-4)".lowercased(if: appState.isLowercaseMode),
+                                label: "Bad days (1-4)",
                                 value: "\(badDays)"
                             )
                         }
@@ -114,14 +114,14 @@ struct YourJourneyView: View {
                             JourneyStatRow(
                                 icon: "flame.fill",
                                 iconColor: .orange,
-                                label: "Current streak".lowercased(if: appState.isLowercaseMode),
+                                label: "Current streak",
                                 value: "\(streakManager.currentStreak) days"
                             )
                             
                             JourneyStatRow(
                                 icon: "trophy.fill",
                                 iconColor: .yellow,
-                                label: "Longest streak".lowercased(if: appState.isLowercaseMode),
+                                label: "Longest streak",
                                 value: "\(streakManager.longestStreak) days"
                             )
                         }
@@ -157,6 +157,7 @@ struct JourneyStatRow: View {
     let iconColor: Color
     let label: String
     let value: String
+    @EnvironmentObject var appState: AppState
     
     var body: some View {
         HStack {
@@ -165,7 +166,7 @@ struct JourneyStatRow: View {
                 .foregroundColor(iconColor)
                 .frame(width: 28)
             
-            Text(label)
+            Text(label.lowercased(if: appState.isLowercaseMode))
                 .font(.system(size: 16))
                 .foregroundColor(.gray)
             
