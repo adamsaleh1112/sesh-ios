@@ -109,7 +109,7 @@ struct RecordingView: View {
                 
                 // Daily prompt (only before any recording starts in this session)
                 if !videoManager.hasRecordedToday() && !hasStartedRecording && !videoManager.isRecording {
-                    Text(dailyPrompt.lowercased(if: appState.isLowercaseMode))
+                    Text(appState.isLowercaseMode ? dailyPrompt.lowercased() : dailyPrompt)
                         .font(.system(size: 20, weight: .medium, design: .rounded))
                         .foregroundColor(.white)
                         .shadow(color: .black.opacity(0.4), radius: 4, x: 0, y: 2)
@@ -198,7 +198,7 @@ struct RecordingView: View {
                                             .foregroundColor(.gray)
                                     }
                                     
-                                    Text("Today's entry was already recorded".lowercased(if: appState.isLowercaseMode))
+                                    Text(appState.isLowercaseMode ? "Today's entry was already recorded".lowercased() : "Today's entry was already recorded")
                         .font(.system(size: 13, weight: .medium))
                         .foregroundColor(.gray)
                                 }
@@ -380,11 +380,11 @@ struct RatingPopup: View {
     var body: some View {
         // Popup content (no dim background - camera is stopped instead)
         VStack(spacing: 24) {
-            Text("How was your day?".lowercased(if: appState.isLowercaseMode))
+            Text(appState.isLowercaseMode ? "How was your day?".lowercased() : "How was your day?")
                 .font(.system(size: 22, weight: .semibold, design: .rounded))
                 .foregroundColor(.white)
             
-            Text("Rate today from 1 to 10".lowercased(if: appState.isLowercaseMode))
+            Text(appState.isLowercaseMode ? "Rate today from 1 to 10".lowercased() : "Rate today from 1 to 10")
                 .font(.system(size: 15, weight: .medium))
                 .foregroundColor(.gray)
             
@@ -411,7 +411,7 @@ struct RatingPopup: View {
                     onRate(rating)
                 }
             }) {
-                Text("Save Entry".lowercased(if: appState.isLowercaseMode))
+                Text(appState.isLowercaseMode ? "Save Entry".lowercased() : "Save Entry")
                     .font(.system(size: 17, weight: .semibold, design: .rounded))
                     .foregroundColor(.black)
                     .padding(.horizontal, 32)
@@ -429,7 +429,7 @@ struct RatingPopup: View {
                 HapticManager.shared.light()
                 onSkip()
             }) {
-                Text("Skip".lowercased(if: appState.isLowercaseMode))
+                Text(appState.isLowercaseMode ? "Skip".lowercased() : "Skip")
                     .font(.system(size: 15, weight: .medium))
                     .foregroundColor(.gray)
             }
