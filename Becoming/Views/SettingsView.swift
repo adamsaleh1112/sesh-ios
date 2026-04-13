@@ -14,7 +14,7 @@ struct SettingsView: View {
                 ScrollView {
                     VStack(spacing: 24) {
                         // Profile Settings
-                        SettingsSection(title: "Profile".lowercased(if: appState.isLowercaseMode)) {
+                        SettingsSection(title: "Profile") {
                             VStack(spacing: 16) {
                                 HStack {
                                     Image(systemName: "person")
@@ -52,7 +52,7 @@ struct SettingsView: View {
                         }
                         
                         // Appearance Settings
-                        SettingsSection(title: "Appearance".lowercased(if: appState.isLowercaseMode)) {
+                        SettingsSection(title: "Appearance") {
                             VStack(spacing: 14) {
                                 // Theme selector
                                 HStack(spacing: 12) {
@@ -178,7 +178,7 @@ struct SettingsView: View {
                         }
                         
                         // Notification Settings
-                        SettingsSection(title: "Notifications".lowercased(if: appState.isLowercaseMode)) {
+                        SettingsSection(title: "Notifications") {
                             VStack(spacing: 16) {
                                 HStack {
                                     Image(systemName: "clock")
@@ -198,7 +198,7 @@ struct SettingsView: View {
                         
                         
                         // About Section
-                        SettingsSection(title: "About".lowercased(if: appState.isLowercaseMode)) {
+                        SettingsSection(title: "About") {
                             VStack(spacing: 16) {
                                 HStack {
                                     Image(systemName: "info.circle")
@@ -218,7 +218,7 @@ struct SettingsView: View {
                         }
                         
                         // Reset Section
-                        SettingsSection(title: "Reset".lowercased(if: appState.isLowercaseMode)) {
+                        SettingsSection(title: "Reset") {
                             VStack(spacing: 16) {
                                 HStack {
                                     Image(systemName: "arrow.counterclockwise")
@@ -314,7 +314,7 @@ struct SettingsSection<Content: View>: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text(title)
+            Text(title.lowercased(if: appState.isLowercaseMode))
                 .font(.system(size: 18, weight: .medium))
                 .foregroundColor(appState.theme.textPrimary)
 

@@ -57,7 +57,7 @@ struct YourJourneyView: View {
             ScrollView {
                 VStack(spacing: 24) {
                     // Journey Overview
-                    SettingsSection(title: "Journey Overview".lowercased(if: appState.isLowercaseMode)) {
+                    SettingsSection(title: "Journey Overview") {
                         VStack(spacing: 16) {
                             JourneyStatRow(
                                 icon: "video.fill",
@@ -76,7 +76,7 @@ struct YourJourneyView: View {
                     }
                     
                     // Rating Breakdown
-                    SettingsSection(title: "Rating Breakdown".lowercased(if: appState.isLowercaseMode)) {
+                    SettingsSection(title: "Rating Breakdown") {
                         VStack(spacing: 16) {
                             JourneyStatRow(
                                 icon: "star.fill",
@@ -109,7 +109,7 @@ struct YourJourneyView: View {
                     }
                     
                     // Streak Statistics
-                    SettingsSection(title: "Streak Statistics".lowercased(if: appState.isLowercaseMode)) {
+                    SettingsSection(title: "Streak Statistics") {
                         VStack(spacing: 16) {
                             JourneyStatRow(
                                 icon: "flame.fill",
@@ -129,7 +129,7 @@ struct YourJourneyView: View {
                     
                     // Motivational Section
                     if totalVideoEntries > 0 {
-                        SettingsSection(title: "Your Progress".lowercased(if: appState.isLowercaseMode)) {
+                        SettingsSection(title: "Your Progress") {
                             VStack(spacing: 12) {
                                 Text(streakManager.motivationalMessage)
                                     .font(.system(size: 16, weight: .medium))
@@ -147,7 +147,7 @@ struct YourJourneyView: View {
                 .padding(.horizontal, 24)
             }
         }
-        .navigationTitle("Your Journey".lowercased(if: appState.isLowercaseMode))
+        .navigationTitle("Your Journey")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
