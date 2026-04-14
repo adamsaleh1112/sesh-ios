@@ -16,7 +16,6 @@ struct RecordingView: View {
     @State private var hasStartedRecording = false
     @State private var showRatingPopup = false
     @State private var selectedRating: Int? = nil
-    @State private var hasFlippedDuringRecording = false
     
     var onVideoSaved: (() -> Void)? = nil
     
@@ -303,7 +302,6 @@ struct RecordingView: View {
             // Reset recording state to ensure clean start
             showSaveButton = false
             recordedVideoURL = nil
-            hasFlippedDuringRecording = false
             hasStartedRecording = false
             
             // Prepare haptics for immediate use
@@ -320,7 +318,7 @@ struct RecordingView: View {
     
     private func toggleRecording() {
         if videoManager.isRecording {
-            print("Stopping recording - hasFlippedDuringRecording: \(hasFlippedDuringRecording)")
+            print("Stopping recording")
             videoManager.stopRecording()
             cameraManager.stopRecording { url in
                 DispatchQueue.main.async {
@@ -336,17 +334,16 @@ struct RecordingView: View {
             }
         } else {
             print("Starting recording")
-            hasFlippedDuringRecording = false // Reset flip tracking
             videoManager.startRecording()
             cameraManager.startRecording(maxDuration: maxRecordingDuration)
         }
     }
     
     private func flipCamera() {
-        // Track if we're flipping during recording
+        // Prevent camera flipping during active recording to avoid disrupting the recording
         if videoManager.isRecording {
-            hasFlippedDuringRecording = true
-            print("Camera flipped during recording - tracking state")
+            print("Cannot flip camera during recording - ignoring flip request")
+            return
         }
         
         isFrontCamera.toggle()
@@ -570,8 +567,11 @@ class CameraManager: NSObject, ObservableObject {
     func switchCamera(toFront: Bool) {
         guard let captureSession = captureSession else { return }
         
-        // Check if we're currently recording - if so, we need to be more careful
-        let wasRecording = videoOutput?.isRecording ?? false
+        // This method should only be called when not recording
+        guard !(videoOutput?.isRecording ?? false) else {
+            print("Warning: Attempted to switch camera during recording")
+            return
+        }
         
         captureSession.beginConfiguration()
         
@@ -616,11 +616,7 @@ class CameraManager: NSObject, ObservableObject {
         }
         
         captureSession.commitConfiguration()
-        
-        // If we were recording before the switch, ensure the recording continues properly
-        if wasRecording {
-            print("Camera switched during recording - connection maintained")
-        }
+        print("Camera switched successfully to \(toFront ? "front" : "back")")
     }
     
     func updatePreviewFrame() {
