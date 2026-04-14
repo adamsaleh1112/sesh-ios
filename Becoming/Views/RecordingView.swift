@@ -191,11 +191,11 @@ struct RecordingView: View {
                                     showRatingPopup = true
                                 }) {
                                     ZStack {
-                                        // Outer ring with success glow
+                                        // Outer ring with monochrome glow
                                         Circle()
                                             .stroke(
                                                 LinearGradient(
-                                                    colors: [Color.green.opacity(0.8), Color.green.opacity(0.4)],
+                                                    colors: [Color.white.opacity(0.8), Color.white.opacity(0.4)],
                                                     startPoint: .topLeading,
                                                     endPoint: .bottomTrailing
                                                 ),
@@ -205,18 +205,18 @@ struct RecordingView: View {
                                             .scaleEffect(1.0)
                                             .opacity(1.0)
                                         
-                                        // Main button with success gradient
+                                        // Main button with monochrome gradient
                                         Circle()
                                             .fill(
                                                 LinearGradient(
-                                                    colors: [Color.green, Color.green.opacity(0.8)],
+                                                    colors: [Color.white, Color.white.opacity(0.9)],
                                                     startPoint: .topLeading,
                                                     endPoint: .bottomTrailing
                                                 )
                                             )
                                             .frame(width: 74, height: 74)
                                             .shadow(
-                                                color: Color.green.opacity(0.4),
+                                                color: Color.black.opacity(0.2),
                                                 radius: 8,
                                                 x: 0,
                                                 y: 4
@@ -226,7 +226,7 @@ struct RecordingView: View {
                                         // Checkmark icon
                                         Image(systemName: "checkmark")
                                             .font(.system(size: 28, weight: .bold))
-                                            .foregroundColor(.white)
+                                            .foregroundColor(.black)
                                             .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
                                     }
                                 }
@@ -283,9 +283,7 @@ struct RecordingView: View {
                                         Circle()
                                             .stroke(
                                                 LinearGradient(
-                                                    colors: videoManager.isRecording ? 
-                                                        [Color.red.opacity(0.8), Color.red.opacity(0.4)] :
-                                                        [Color.white.opacity(0.6), Color.white.opacity(0.2)],
+                                                    colors: [Color.white.opacity(0.6), Color.white.opacity(0.2)],
                                                     startPoint: .topLeading,
                                                     endPoint: .bottomTrailing
                                                 ),
@@ -295,12 +293,12 @@ struct RecordingView: View {
                                             .scaleEffect(videoManager.isRecording ? 1.05 : 1.0)
                                             .opacity(videoManager.isRecording ? 0.8 : 1.0)
                                         
-                                        // Main button with gradient
+                                        // Main button with monochrome gradient
                                         Circle()
                                             .fill(
                                                 videoManager.isRecording ? 
                                                     LinearGradient(
-                                                        colors: [Color.red, Color.red.opacity(0.8)],
+                                                        colors: [Color.gray.opacity(0.9), Color.gray.opacity(0.7)],
                                                         startPoint: .topLeading,
                                                         endPoint: .bottomTrailing
                                                     ) :
@@ -312,9 +310,7 @@ struct RecordingView: View {
                                             )
                                             .frame(width: 74, height: 74)
                                             .shadow(
-                                                color: videoManager.isRecording ? 
-                                                    Color.red.opacity(0.4) : 
-                                                    Color.black.opacity(0.2),
+                                                color: Color.black.opacity(0.2),
                                                 radius: videoManager.isRecording ? 8 : 4,
                                                 x: 0,
                                                 y: videoManager.isRecording ? 4 : 2
@@ -331,9 +327,8 @@ struct RecordingView: View {
                                         } else {
                                             // Record dot indicator
                                             Circle()
-                                                .fill(Color.red)
+                                                .fill(Color.gray.opacity(0.8))
                                                 .frame(width: 12, height: 12)
-                                                .opacity(0.8)
                                         }
                                     }
                                 }
