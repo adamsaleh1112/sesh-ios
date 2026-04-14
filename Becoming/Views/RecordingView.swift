@@ -427,7 +427,20 @@ struct RecordingView: View {
             return
         }
         
+        let videoComposition = AVMutableVideoComposition()
+        var instructions: [AVMutableVideoCompositionInstruction] = []
         var currentTime = CMTime.zero
+        
+        // Get the first video track to determine output size
+        let firstAsset = AVAsset(url: segments[0])
+        guard let firstVideoTrack = firstAsset.tracks(withMediaType: .video).first else {
+            completion(nil)
+            return
+        }
+        
+        let outputSize = firstVideoTrack.naturalSize
+        videoComposition.renderSize = outputSize
+        videoComposition.frameDuration = CMTime(value: 1, timescale: 30) // 30 FPS
         
         for segmentURL in segments {
             let asset = AVAsset(url: segmentURL)
@@ -437,6 +450,20 @@ struct RecordingView: View {
                 do {
                     let timeRange = CMTimeRange(start: .zero, duration: asset.duration)
                     try videoTrack.insertTimeRange(timeRange, of: assetVideoTrack, at: currentTime)
+                    
+                    // Create video composition instruction for this segment
+                    let instruction = AVMutableVideoCompositionInstruction()
+                    instruction.timeRange = CMTimeRange(start: currentTime, duration: asset.duration)
+                    
+                    let layerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoTrack)
+                    
+                    // Apply transform to maintain consistent orientation
+                    let transform = assetVideoTrack.preferredTransform
+                    layerInstruction.setTransform(transform, at: currentTime)
+                    
+                    instruction.layerInstructions = [layerInstruction]
+                    instructions.append(instruction)
+                    
                 } catch {
                     print("Error inserting video track: \(error)")
                     completion(nil)
@@ -458,6 +485,8 @@ struct RecordingView: View {
             currentTime = CMTimeAdd(currentTime, asset.duration)
         }
         
+        videoComposition.instructions = instructions
+        
         // Export the combined video
         let outputURL = FileManager.default.temporaryDirectory
             .appendingPathComponent(UUID().uuidString)
@@ -470,6 +499,7 @@ struct RecordingView: View {
         
         exportSession.outputURL = outputURL
         exportSession.outputFileType = .mov
+        exportSession.videoComposition = videoComposition
         
         exportSession.exportAsynchronously {
             DispatchQueue.main.async {
@@ -686,9 +716,15 @@ class CameraManager: NSObject, ObservableObject {
                     connection.preferredVideoStabilizationMode = .auto
                 }
                 
-                // Prevent horizontal flip (mirror) on front camera
+                // Set video orientation to portrait
+                if connection.isVideoOrientationSupported {
+                    connection.videoOrientation = .portrait
+                }
+                
+                // Mirror front camera to match what user sees in preview
                 if connection.isVideoMirroringSupported {
-                    connection.isVideoMirrored = false
+                    let position = (try? AVCaptureDeviceInput(device: device))?.device.position
+                    connection.isVideoMirrored = (position == .front)
                 }
             }
         }
@@ -754,9 +790,14 @@ class CameraManager: NSObject, ObservableObject {
                 connection.preferredVideoStabilizationMode = .auto
             }
             
-            // Prevent horizontal flip (mirror) on front camera
+            // Set video orientation to portrait
+            if connection.isVideoOrientationSupported {
+                connection.videoOrientation = .portrait
+            }
+            
+            // Mirror front camera to match what user sees in preview
             if connection.isVideoMirroringSupported {
-                connection.isVideoMirrored = false
+                connection.isVideoMirrored = toFront
             }
         }
         
@@ -818,9 +859,14 @@ class CameraManager: NSObject, ObservableObject {
                 connection.preferredVideoStabilizationMode = .auto
             }
             
-            // Prevent horizontal flip (mirror) on front camera
+            // Set video orientation to portrait
+            if connection.isVideoOrientationSupported {
+                connection.videoOrientation = .portrait
+            }
+            
+            // Mirror front camera to match what user sees in preview
             if connection.isVideoMirroringSupported {
-                connection.isVideoMirrored = false
+                connection.isVideoMirrored = toFront
             }
         }
         
