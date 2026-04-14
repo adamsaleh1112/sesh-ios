@@ -387,9 +387,8 @@ struct RecordingView: View {
         isProcessingCameraSwitch = true
         
         // Step 1: Stop current recording and save segment
-        cameraManager.stopRecording { [weak self] url in
+        cameraManager.stopRecording { url in
             DispatchQueue.main.async {
-                guard let self = self else { return }
                 
                 if let url = url {
                     self.recordingSegments.append(url)
