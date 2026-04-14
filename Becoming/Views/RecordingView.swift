@@ -340,14 +340,14 @@ struct RecordingView: View {
     }
     
     private func flipCamera() {
-        // Prevent camera flipping during active recording to avoid disrupting the recording
-        if videoManager.isRecording {
-            print("Cannot flip camera during recording - ignoring flip request")
-            return
-        }
-        
         isFrontCamera.toggle()
-        cameraManager.switchCamera(toFront: isFrontCamera)
+        
+        if videoManager.isRecording {
+            print("Flipping camera during recording - maintaining recording session")
+            cameraManager.switchCameraDuringRecording(toFront: isFrontCamera)
+        } else {
+            cameraManager.switchCamera(toFront: isFrontCamera)
+        }
     }
     
     private func formatTime(_ seconds: TimeInterval) -> String {
@@ -569,7 +569,7 @@ class CameraManager: NSObject, ObservableObject {
         
         // This method should only be called when not recording
         guard !(videoOutput?.isRecording ?? false) else {
-            print("Warning: Attempted to switch camera during recording")
+            print("Warning: Attempted to switch camera during recording - use switchCameraDuringRecording instead")
             return
         }
         
@@ -617,6 +617,70 @@ class CameraManager: NSObject, ObservableObject {
         
         captureSession.commitConfiguration()
         print("Camera switched successfully to \(toFront ? "front" : "back")")
+    }
+    
+    func switchCameraDuringRecording(toFront: Bool) {
+        guard let captureSession = captureSession,
+              let videoOutput = videoOutput else { return }
+        
+        // Check if we're actually recording
+        guard videoOutput.isRecording else {
+            print("Not currently recording - using regular switch")
+            switchCamera(toFront: toFront)
+            return
+        }
+        
+        print("Switching camera during recording - this may cause a brief interruption")
+        
+        // We need to be very careful here - switching inputs during recording can be tricky
+        // The safest approach is to quickly switch the input while keeping the session running
+        
+        captureSession.beginConfiguration()
+        
+        // Remove existing video input
+        if let currentInput = currentVideoInput {
+            captureSession.removeInput(currentInput)
+        }
+        
+        // Add new video input
+        let position: AVCaptureDevice.Position = toFront ? .front : .back
+        let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: position)
+            ?? AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: toFront ? .back : .front)
+        
+        guard let device = videoDevice else {
+            captureSession.commitConfiguration()
+            print("Failed to get camera device")
+            return
+        }
+        
+        // Configure the new device
+        configureDevice(device)
+        
+        guard let videoInput = try? AVCaptureDeviceInput(device: device),
+              captureSession.canAddInput(videoInput) else {
+            captureSession.commitConfiguration()
+            print("Failed to create or add video input")
+            return
+        }
+        
+        currentVideoInput = videoInput
+        captureSession.addInput(videoInput)
+        
+        // Re-configure video output connection after switching camera
+        if let connection = videoOutput.connection(with: .video) {
+            // Enable video stabilization
+            if connection.isVideoStabilizationSupported {
+                connection.preferredVideoStabilizationMode = .auto
+            }
+            
+            // Prevent horizontal flip (mirror) on front camera
+            if connection.isVideoMirroringSupported {
+                connection.isVideoMirrored = false
+            }
+        }
+        
+        captureSession.commitConfiguration()
+        print("Camera switched during recording to \(toFront ? "front" : "back")")
     }
     
     func updatePreviewFrame() {
