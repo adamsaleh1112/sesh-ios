@@ -16,6 +16,7 @@ struct RecordingView: View {
     @State private var hasStartedRecording = false
     @State private var showRatingPopup = false
     @State private var selectedRating: Int? = nil
+    @State private var hasFlippedDuringRecording = false
     
     var onVideoSaved: (() -> Void)? = nil
     
@@ -296,8 +297,15 @@ struct RecordingView: View {
             }
         }
         .onAppear {
-            cameraManager.setupCamera()
-            cameraManager.updatePreviewFrame()
+            // Always kill and restart camera to prevent frozen feed
+            cameraManager.restartCamera(useFront: isFrontCamera)
+            
+            // Reset recording state to ensure clean start
+            showSaveButton = false
+            recordedVideoURL = nil
+            hasFlippedDuringRecording = false
+            hasStartedRecording = false
+            
             // Prepare haptics for immediate use
             HapticManager.shared.prepareLight()
             HapticManager.shared.prepareMedium()
@@ -312,22 +320,35 @@ struct RecordingView: View {
     
     private func toggleRecording() {
         if videoManager.isRecording {
+            print("Stopping recording - hasFlippedDuringRecording: \(hasFlippedDuringRecording)")
             videoManager.stopRecording()
             cameraManager.stopRecording { url in
                 DispatchQueue.main.async {
+                    print("Recording stopped - URL: \(url?.absoluteString ?? "nil")")
                     if let url = url {
-                        recordedVideoURL = url
-                        showSaveButton = true
+                        self.recordedVideoURL = url
+                        self.showSaveButton = true
+                        print("showSaveButton set to true")
+                    } else {
+                        print("No URL received from recording")
                     }
                 }
             }
         } else {
+            print("Starting recording")
+            hasFlippedDuringRecording = false // Reset flip tracking
             videoManager.startRecording()
             cameraManager.startRecording(maxDuration: maxRecordingDuration)
         }
     }
     
     private func flipCamera() {
+        // Track if we're flipping during recording
+        if videoManager.isRecording {
+            hasFlippedDuringRecording = true
+            print("Camera flipped during recording - tracking state")
+        }
+        
         isFrontCamera.toggle()
         cameraManager.switchCamera(toFront: isFrontCamera)
     }
@@ -549,6 +570,9 @@ class CameraManager: NSObject, ObservableObject {
     func switchCamera(toFront: Bool) {
         guard let captureSession = captureSession else { return }
         
+        // Check if we're currently recording - if so, we need to be more careful
+        let wasRecording = videoOutput?.isRecording ?? false
+        
         captureSession.beginConfiguration()
         
         // Remove existing video input
@@ -561,8 +585,15 @@ class CameraManager: NSObject, ObservableObject {
         let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: position)
             ?? AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: toFront ? .back : .front)
         
-        guard let device = videoDevice,
-              let videoInput = try? AVCaptureDeviceInput(device: device),
+        guard let device = videoDevice else {
+            captureSession.commitConfiguration()
+            return
+        }
+        
+        // Configure the new device
+        configureDevice(device)
+        
+        guard let videoInput = try? AVCaptureDeviceInput(device: device),
               captureSession.canAddInput(videoInput) else {
             captureSession.commitConfiguration()
             return
@@ -571,13 +602,25 @@ class CameraManager: NSObject, ObservableObject {
         currentVideoInput = videoInput
         captureSession.addInput(videoInput)
         
-        // Re-apply video mirroring setting after switching camera
-        if let connection = videoOutput?.connection(with: .video),
-           connection.isVideoMirroringSupported {
-            connection.isVideoMirrored = false
+        // Re-configure video output connection after switching camera
+        if let videoOutput = videoOutput, let connection = videoOutput.connection(with: .video) {
+            // Enable video stabilization
+            if connection.isVideoStabilizationSupported {
+                connection.preferredVideoStabilizationMode = .auto
+            }
+            
+            // Prevent horizontal flip (mirror) on front camera
+            if connection.isVideoMirroringSupported {
+                connection.isVideoMirrored = false
+            }
         }
         
         captureSession.commitConfiguration()
+        
+        // If we were recording before the switch, ensure the recording continues properly
+        if wasRecording {
+            print("Camera switched during recording - connection maintained")
+        }
     }
     
     func updatePreviewFrame() {
@@ -600,6 +643,31 @@ class CameraManager: NSObject, ObservableObject {
                 // Don't nil the session - reuse it for better performance
                 self.isSessionConfigured = false
             }
+        }
+    }
+    
+    func restartCamera(useFront: Bool = true) {
+        // Completely kill the existing session to prevent frozen feeds
+        if let captureSession = captureSession {
+            DispatchQueue.global(qos: .userInitiated).async {
+                if captureSession.isRunning {
+                    captureSession.stopRunning()
+                }
+                
+                DispatchQueue.main.async {
+                    self.previewLayer?.removeFromSuperlayer()
+                    self.previewLayer = nil
+                    self.captureSession = nil
+                    self.videoOutput = nil
+                    self.currentVideoInput = nil
+                    self.isSessionConfigured = false
+                    
+                    // Setup fresh camera session
+                    self.setupCamera(useFront: useFront)
+                }
+            }
+        } else {
+            setupCamera(useFront: useFront)
         }
     }
     
