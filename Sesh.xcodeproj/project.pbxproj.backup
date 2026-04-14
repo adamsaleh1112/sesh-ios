@@ -7,43 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A1000000000000000001 /* BecomingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000002 /* BecomingApp.swift */; };
-		A1000000000000000003 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000004 /* ContentView.swift */; };
-		A1000000000000000005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1000000000000000006 /* Assets.xcassets */; };
-		A1000000000000000007 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1000000000000000008 /* Preview Assets.xcassets */; };
-		A1000000000000000009 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000010 /* AppState.swift */; };
-		A1000000000000000011 /* VideoEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000012 /* VideoEntry.swift */; };
-		A1000000000000000013 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000014 /* NotificationManager.swift */; };
-		A1000000000000000015 /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000016 /* VideoManager.swift */; };
-		A1000000000000000017 /* StreakManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000018 /* StreakManager.swift */; };
-		A1000000000000000019 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000020 /* OnboardingView.swift */; };
-		A1000000000000000023 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000024 /* RecordingView.swift */; };
-		A1000000000000000027 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000028 /* SettingsView.swift */; };
-		A1000000000000000029 /* CalendarTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000030 /* CalendarTimelineView.swift */; };
-		A230A4E92F8C61C100C2FBA9 /* YourJourneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A230A4E82F8C61C100C2FBA9 /* YourJourneyView.swift */; };
-		A230A5282F8C741D00C2FBA9 /* Becoming.icon in Resources */ = {isa = PBXBuildFile; fileRef = A230A5272F8C741D00C2FBA9 /* Becoming.icon */; };
-		A2F6A9672F8B4A0400450FE5 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F6A9662F8B4A0400450FE5 /* HapticManager.swift */; };
+		A2A3337C2F8DFCCA00EACAEA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A333742F8DFCCA00EACAEA /* SettingsView.swift */; };
+		A2A3337D2F8DFCCA00EACAEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A333782F8DFCCA00EACAEA /* ContentView.swift */; };
+		A2A3337E2F8DFCCA00EACAEA /* CalendarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3336F2F8DFCCA00EACAEA /* CalendarEntry.swift */; };
+		A2A3337F2F8DFCCA00EACAEA /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3336C2F8DFCCA00EACAEA /* CalendarManager.swift */; };
+		A2A333802F8DFCCA00EACAEA /* BecomingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A333772F8DFCCA00EACAEA /* BecomingApp.swift */; };
+		A2A333812F8DFCCA00EACAEA /* CalendarTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A333732F8DFCCA00EACAEA /* CalendarTimelineView.swift */; };
+		A2A333822F8DFCCA00EACAEA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3336E2F8DFCCA00EACAEA /* AppState.swift */; };
+		A2A333832F8DFCCA00EACAEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2A333762F8DFCCA00EACAEA /* Assets.xcassets */; };
+		A2A333842F8DFCCA00EACAEA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2A333792F8DFCCA00EACAEA /* Info.plist */; };
+		A2A333852F8DFCCA00EACAEA /* Sesh.icon in Resources */ = {isa = PBXBuildFile; fileRef = A2A3337A2F8DFCCA00EACAEA /* Sesh.icon */; };
+		A2A333862F8DFCCA00EACAEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2A333712F8DFCCA00EACAEA /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A1000000000000000002 /* BecomingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomingApp.swift; sourceTree = "<group>"; };
-		A1000000000000000004 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A1000000000000000006 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A1000000000000000008 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A1000000000000000010 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		A1000000000000000012 /* VideoEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEntry.swift; sourceTree = "<group>"; };
-		A1000000000000000014 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		A1000000000000000016 /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
-		A1000000000000000018 /* StreakManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakManager.swift; sourceTree = "<group>"; };
-		A1000000000000000020 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		A1000000000000000024 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
-		A1000000000000000028 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		A1000000000000000030 /* CalendarTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTimelineView.swift; sourceTree = "<group>"; };
 		A1000000000000000031 /* Becoming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Becoming.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1000000000000000032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A230A4E82F8C61C100C2FBA9 /* YourJourneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourJourneyView.swift; sourceTree = "<group>"; };
-		A230A5272F8C741D00C2FBA9 /* Becoming.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = Becoming.icon; sourceTree = "<group>"; };
-		A2F6A9662F8B4A0400450FE5 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		A2A3336C2F8DFCCA00EACAEA /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		A2A3336E2F8DFCCA00EACAEA /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		A2A3336F2F8DFCCA00EACAEA /* CalendarEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEntry.swift; sourceTree = "<group>"; };
+		A2A333712F8DFCCA00EACAEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A2A333732F8DFCCA00EACAEA /* CalendarTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTimelineView.swift; sourceTree = "<group>"; };
+		A2A333742F8DFCCA00EACAEA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A2A333762F8DFCCA00EACAEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A2A333772F8DFCCA00EACAEA /* BecomingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomingApp.swift; sourceTree = "<group>"; };
+		A2A333782F8DFCCA00EACAEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A2A333792F8DFCCA00EACAEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2A3337A2F8DFCCA00EACAEA /* Sesh.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = Sesh.icon; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,25 +47,9 @@
 		A1000000000000000034 = {
 			isa = PBXGroup;
 			children = (
-				A1000000000000000035 /* Becoming */,
+				A2A3337B2F8DFCCA00EACAEA /* Sesh */,
 				A1000000000000000036 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		A1000000000000000035 /* Becoming */ = {
-			isa = PBXGroup;
-			children = (
-				A230A5272F8C741D00C2FBA9 /* Becoming.icon */,
-				A1000000000000000002 /* BecomingApp.swift */,
-				A1000000000000000004 /* ContentView.swift */,
-				A1000000000000000037 /* Models */,
-				A1000000000000000038 /* Managers */,
-				A1000000000000000039 /* Views */,
-				A1000000000000000006 /* Assets.xcassets */,
-				A1000000000000000032 /* Info.plist */,
-				A1000000000000000040 /* Preview Content */,
-			);
-			path = Becoming;
 			sourceTree = "<group>";
 		};
 		A1000000000000000036 /* Products */ = {
@@ -87,44 +60,54 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A1000000000000000037 /* Models */ = {
+		A2A3336D2F8DFCCA00EACAEA /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				A1000000000000000010 /* AppState.swift */,
-				A1000000000000000012 /* VideoEntry.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		A1000000000000000038 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				A2F6A9662F8B4A0400450FE5 /* HapticManager.swift */,
-				A1000000000000000014 /* NotificationManager.swift */,
-				A1000000000000000016 /* VideoManager.swift */,
-				A1000000000000000018 /* StreakManager.swift */,
+				A2A3336C2F8DFCCA00EACAEA /* CalendarManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		A1000000000000000039 /* Views */ = {
+		A2A333702F8DFCCA00EACAEA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A230A4E82F8C61C100C2FBA9 /* YourJourneyView.swift */,
-				A1000000000000000020 /* OnboardingView.swift */,
-				A1000000000000000024 /* RecordingView.swift */,
-				A1000000000000000028 /* SettingsView.swift */,
-				A1000000000000000030 /* CalendarTimelineView.swift */,
+				A2A3336E2F8DFCCA00EACAEA /* AppState.swift */,
+				A2A3336F2F8DFCCA00EACAEA /* CalendarEntry.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A2A333722F8DFCCA00EACAEA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A2A333712F8DFCCA00EACAEA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A2A333752F8DFCCA00EACAEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A2A333732F8DFCCA00EACAEA /* CalendarTimelineView.swift */,
+				A2A333742F8DFCCA00EACAEA /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		A1000000000000000040 /* Preview Content */ = {
+		A2A3337B2F8DFCCA00EACAEA /* Sesh */ = {
 			isa = PBXGroup;
 			children = (
-				A1000000000000000008 /* Preview Assets.xcassets */,
+				A2A3336D2F8DFCCA00EACAEA /* Managers */,
+				A2A333702F8DFCCA00EACAEA /* Models */,
+				A2A333722F8DFCCA00EACAEA /* Preview Content */,
+				A2A333752F8DFCCA00EACAEA /* Views */,
+				A2A333762F8DFCCA00EACAEA /* Assets.xcassets */,
+				A2A333772F8DFCCA00EACAEA /* BecomingApp.swift */,
+				A2A333782F8DFCCA00EACAEA /* ContentView.swift */,
+				A2A333792F8DFCCA00EACAEA /* Info.plist */,
+				A2A3337A2F8DFCCA00EACAEA /* Sesh.icon */,
 			);
-			path = "Preview Content";
+			path = Sesh;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,7 +143,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A1000000000000000046 /* Build configuration list for PBXProject "Becoming" */;
+			buildConfigurationList = A1000000000000000046 /* Build configuration list for PBXProject "Sesh" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -182,9 +165,10 @@
 		A1000000000000000044 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
-				A1000000000000000007 /* Preview Assets.xcassets in Resources */,
-				A230A5282F8C741D00C2FBA9 /* Becoming.icon in Resources */,
-				A1000000000000000005 /* Assets.xcassets in Resources */,
+				A2A333832F8DFCCA00EACAEA /* Assets.xcassets in Resources */,
+				A2A333842F8DFCCA00EACAEA /* Info.plist in Resources */,
+				A2A333852F8DFCCA00EACAEA /* Sesh.icon in Resources */,
+				A2A333862F8DFCCA00EACAEA /* Preview Assets.xcassets in Resources */,
 			);
 		};
 /* End PBXResourcesBuildPhase section */
@@ -193,25 +177,19 @@
 		A1000000000000000043 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
-				A1000000000000000003 /* ContentView.swift in Sources */,
-				A1000000000000000001 /* BecomingApp.swift in Sources */,
-				A1000000000000000009 /* AppState.swift in Sources */,
-				A1000000000000000011 /* VideoEntry.swift in Sources */,
-				A1000000000000000013 /* NotificationManager.swift in Sources */,
-				A1000000000000000015 /* VideoManager.swift in Sources */,
-				A1000000000000000017 /* StreakManager.swift in Sources */,
-				A1000000000000000019 /* OnboardingView.swift in Sources */,
-				A230A4E92F8C61C100C2FBA9 /* YourJourneyView.swift in Sources */,
-				A1000000000000000023 /* RecordingView.swift in Sources */,
-				A1000000000000000027 /* SettingsView.swift in Sources */,
-				A2F6A9672F8B4A0400450FE5 /* HapticManager.swift in Sources */,
-				A1000000000000000029 /* CalendarTimelineView.swift in Sources */,
+				A2A3337C2F8DFCCA00EACAEA /* SettingsView.swift in Sources */,
+				A2A3337D2F8DFCCA00EACAEA /* ContentView.swift in Sources */,
+				A2A3337E2F8DFCCA00EACAEA /* CalendarEntry.swift in Sources */,
+				A2A3337F2F8DFCCA00EACAEA /* CalendarManager.swift in Sources */,
+				A2A333802F8DFCCA00EACAEA /* BecomingApp.swift in Sources */,
+				A2A333812F8DFCCA00EACAEA /* CalendarTimelineView.swift in Sources */,
+				A2A333822F8DFCCA00EACAEA /* AppState.swift in Sources */,
 			);
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		A1000000000000000047 /* Debug configuration for PBXProject "Becoming" */ = {
+		A1000000000000000047 /* Debug configuration for PBXProject "Sesh" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -274,7 +252,7 @@
 			};
 			name = Debug;
 		};
-		A1000000000000000048 /* Release configuration for PBXProject "Becoming" */ = {
+		A1000000000000000048 /* Release configuration for PBXProject "Sesh" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -405,11 +383,11 @@
 			);
 			defaultConfigurationName = Release;
 		};
-		A1000000000000000046 /* Build configuration list for PBXProject "Becoming" */ = {
+		A1000000000000000046 /* Build configuration list for PBXProject "Sesh" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1000000000000000047 /* Debug configuration for PBXProject "Becoming" */,
-				A1000000000000000048 /* Release configuration for PBXProject "Becoming" */,
+				A1000000000000000047 /* Debug configuration for PBXProject "Sesh" */,
+				A1000000000000000048 /* Release configuration for PBXProject "Sesh" */,
 			);
 			defaultConfigurationName = Release;
 		};

@@ -1,0 +1,401 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 90;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A26592E42F8E055500625236 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26592E32F8E055500625236 /* OnboardingView.swift */; };
+		A26592E62F8E064000625236 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26592E52F8E064000625236 /* HapticManager.swift */; };
+		A2A3337C2F8DFCCA00EACAEA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A333742F8DFCCA00EACAEA /* SettingsView.swift */; };
+		A2A3337D2F8DFCCA00EACAEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A333782F8DFCCA00EACAEA /* ContentView.swift */; };
+		A2A3337E2F8DFCCA00EACAEA /* CalendarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3336F2F8DFCCA00EACAEA /* CalendarEntry.swift */; };
+		A2A3337F2F8DFCCA00EACAEA /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3336C2F8DFCCA00EACAEA /* CalendarManager.swift */; };
+		A2A333802F8DFCCA00EACAEA /* BecomingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A333772F8DFCCA00EACAEA /* BecomingApp.swift */; };
+		A2A333812F8DFCCA00EACAEA /* CalendarTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A333732F8DFCCA00EACAEA /* CalendarTimelineView.swift */; };
+		A2A333822F8DFCCA00EACAEA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3336E2F8DFCCA00EACAEA /* AppState.swift */; };
+		A2A333832F8DFCCA00EACAEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2A333762F8DFCCA00EACAEA /* Assets.xcassets */; };
+		A2A333852F8DFCCA00EACAEA /* Sesh.icon in Resources */ = {isa = PBXBuildFile; fileRef = A2A3337A2F8DFCCA00EACAEA /* Sesh.icon */; };
+		A2A333862F8DFCCA00EACAEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2A333712F8DFCCA00EACAEA /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A1000000000000000031 /* Sesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A26592E32F8E055500625236 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		A26592E52F8E064000625236 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		A2A3336C2F8DFCCA00EACAEA /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		A2A3336E2F8DFCCA00EACAEA /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		A2A3336F2F8DFCCA00EACAEA /* CalendarEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEntry.swift; sourceTree = "<group>"; };
+		A2A333712F8DFCCA00EACAEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A2A333732F8DFCCA00EACAEA /* CalendarTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTimelineView.swift; sourceTree = "<group>"; };
+		A2A333742F8DFCCA00EACAEA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A2A333762F8DFCCA00EACAEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A2A333772F8DFCCA00EACAEA /* BecomingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomingApp.swift; sourceTree = "<group>"; };
+		A2A333782F8DFCCA00EACAEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A2A333792F8DFCCA00EACAEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2A3337A2F8DFCCA00EACAEA /* Sesh.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = Sesh.icon; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1000000000000000033 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A1000000000000000034 = {
+			isa = PBXGroup;
+			children = (
+				A2A3337B2F8DFCCA00EACAEA /* Sesh */,
+				A1000000000000000036 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A1000000000000000036 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1000000000000000031 /* Sesh.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A2A3336D2F8DFCCA00EACAEA /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A26592E52F8E064000625236 /* HapticManager.swift */,
+				A2A3336C2F8DFCCA00EACAEA /* CalendarManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		A2A333702F8DFCCA00EACAEA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A2A3336E2F8DFCCA00EACAEA /* AppState.swift */,
+				A2A3336F2F8DFCCA00EACAEA /* CalendarEntry.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A2A333722F8DFCCA00EACAEA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A2A333712F8DFCCA00EACAEA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A2A333752F8DFCCA00EACAEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A26592E32F8E055500625236 /* OnboardingView.swift */,
+				A2A333732F8DFCCA00EACAEA /* CalendarTimelineView.swift */,
+				A2A333742F8DFCCA00EACAEA /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A2A3337B2F8DFCCA00EACAEA /* Sesh */ = {
+			isa = PBXGroup;
+			children = (
+				A2A3336D2F8DFCCA00EACAEA /* Managers */,
+				A2A333702F8DFCCA00EACAEA /* Models */,
+				A2A333722F8DFCCA00EACAEA /* Preview Content */,
+				A2A333752F8DFCCA00EACAEA /* Views */,
+				A2A333762F8DFCCA00EACAEA /* Assets.xcassets */,
+				A2A333772F8DFCCA00EACAEA /* BecomingApp.swift */,
+				A2A333782F8DFCCA00EACAEA /* ContentView.swift */,
+				A2A333792F8DFCCA00EACAEA /* Info.plist */,
+				A2A3337A2F8DFCCA00EACAEA /* Sesh.icon */,
+			);
+			path = Sesh;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A1000000000000000041 /* Sesh */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1000000000000000042 /* Build configuration list for PBXNativeTarget "Sesh" */;
+			buildPhases = (
+				A1000000000000000043 /* Sources */,
+				A1000000000000000033 /* Frameworks */,
+				A1000000000000000044 /* Resources */,
+			);
+			buildRules = (
+			);
+			name = Sesh;
+			productName = Sesh;
+			productReference = A1000000000000000031 /* Sesh.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1000000000000000045 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					A1000000000000000041 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = A1000000000000000046 /* Build configuration list for PBXProject "Sesh" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A1000000000000000034;
+			preferredProjectObjectVersion = 90;
+			productRefGroup = A1000000000000000036 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1000000000000000041 /* Sesh */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1000000000000000044 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				A2A333832F8DFCCA00EACAEA /* Assets.xcassets in Resources */,
+				A2A333852F8DFCCA00EACAEA /* Sesh.icon in Resources */,
+				A2A333862F8DFCCA00EACAEA /* Preview Assets.xcassets in Resources */,
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1000000000000000043 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				A2A3337C2F8DFCCA00EACAEA /* SettingsView.swift in Sources */,
+				A2A3337D2F8DFCCA00EACAEA /* ContentView.swift in Sources */,
+				A2A3337E2F8DFCCA00EACAEA /* CalendarEntry.swift in Sources */,
+				A2A3337F2F8DFCCA00EACAEA /* CalendarManager.swift in Sources */,
+				A2A333802F8DFCCA00EACAEA /* BecomingApp.swift in Sources */,
+				A26592E42F8E055500625236 /* OnboardingView.swift in Sources */,
+				A2A333812F8DFCCA00EACAEA /* CalendarTimelineView.swift in Sources */,
+				A26592E62F8E064000625236 /* HapticManager.swift in Sources */,
+				A2A333822F8DFCCA00EACAEA /* AppState.swift in Sources */,
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A1000000000000000047 /* Debug configuration for PBXProject "Sesh" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A1000000000000000048 /* Release configuration for PBXProject "Sesh" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A1000000000000000049 /* Debug configuration for PBXNativeTarget "Sesh" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Sesh;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Sesh/Preview Content\"";
+				DEVELOPMENT_TEAM = GG2H8A5KTB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sesh/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamsaleh.sesh;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A1000000000000000050 /* Release configuration for PBXNativeTarget "Sesh" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Sesh;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Sesh/Preview Content\"";
+				DEVELOPMENT_TEAM = GG2H8A5KTB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sesh/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamsaleh.sesh;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1000000000000000042 /* Build configuration list for PBXNativeTarget "Sesh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1000000000000000049 /* Debug configuration for PBXNativeTarget "Sesh" */,
+				A1000000000000000050 /* Release configuration for PBXNativeTarget "Sesh" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		A1000000000000000046 /* Build configuration list for PBXProject "Sesh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1000000000000000047 /* Debug configuration for PBXProject "Sesh" */,
+				A1000000000000000048 /* Release configuration for PBXProject "Sesh" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1000000000000000045 /* Project object */;
+}
