@@ -205,7 +205,7 @@ struct RecordingView: View {
                         .foregroundColor(.gray)
                                 }
                             } else {
-                                // Normal record button
+                                // Professional record button
                                 Button(action: {
                                     if videoManager.isRecording {
                                         DispatchQueue.main.async {
@@ -220,21 +220,66 @@ struct RecordingView: View {
                                     toggleRecording()
                                 }) {
                                     ZStack {
+                                        // Outer ring with subtle glow
                                         Circle()
-                                            .fill(videoManager.isRecording ? Color.red : Color.white)
-                                            .frame(width: 80, height: 80)
-                                            .overlay(
-                                                Circle()
-                                                    .stroke(Color.white.opacity(0.3), lineWidth: videoManager.isRecording ? 0 : 2)
+                                            .stroke(
+                                                LinearGradient(
+                                                    colors: videoManager.isRecording ? 
+                                                        [Color.red.opacity(0.8), Color.red.opacity(0.4)] :
+                                                        [Color.white.opacity(0.6), Color.white.opacity(0.2)],
+                                                    startPoint: .topLeading,
+                                                    endPoint: .bottomTrailing
+                                                ),
+                                                lineWidth: 3
                                             )
+                                            .frame(width: 90, height: 90)
+                                            .scaleEffect(videoManager.isRecording ? 1.1 : 1.0)
+                                            .opacity(videoManager.isRecording ? 0.8 : 1.0)
                                         
+                                        // Main button with gradient
+                                        Circle()
+                                            .fill(
+                                                videoManager.isRecording ? 
+                                                    LinearGradient(
+                                                        colors: [Color.red, Color.red.opacity(0.8)],
+                                                        startPoint: .topLeading,
+                                                        endPoint: .bottomTrailing
+                                                    ) :
+                                                    LinearGradient(
+                                                        colors: [Color.white, Color.white.opacity(0.9)],
+                                                        startPoint: .topLeading,
+                                                        endPoint: .bottomTrailing
+                                                    )
+                                            )
+                                            .frame(width: 75, height: 75)
+                                            .shadow(
+                                                color: videoManager.isRecording ? 
+                                                    Color.red.opacity(0.4) : 
+                                                    Color.black.opacity(0.2),
+                                                radius: videoManager.isRecording ? 8 : 4,
+                                                x: 0,
+                                                y: videoManager.isRecording ? 4 : 2
+                                            )
+                                            .scaleEffect(videoManager.isRecording ? 0.85 : 1.0)
+                                        
+                                        // Inner content
                                         if videoManager.isRecording {
-                                            RoundedRectangle(cornerRadius: 4)
+                                            // Stop icon (rounded rectangle)
+                                            RoundedRectangle(cornerRadius: 6)
                                                 .fill(Color.white)
-                                                .frame(width: 24, height: 24)
+                                                .frame(width: 28, height: 28)
+                                                .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                                        } else {
+                                            // Record dot indicator
+                                            Circle()
+                                                .fill(Color.red)
+                                                .frame(width: 12, height: 12)
+                                                .opacity(0.8)
                                         }
                                     }
                                 }
+                                .scaleEffect(videoManager.isRecording ? 1.0 : 1.0)
+                                .animation(.spring(response: 0.4, dampingFraction: 0.6), value: videoManager.isRecording)
                                 .transition(.asymmetric(
                                     insertion: .opacity.combined(with: .scale(scale: 1.1)),
                                     removal: .opacity.combined(with: .scale(scale: 0.9))
