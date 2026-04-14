@@ -160,11 +160,11 @@ struct RecordingView: View {
                                     showRatingPopup = true
                                 }) {
                                     ZStack {
-                                        // Outer ring with accent color glow
+                                        // Outer ring with white glow
                                         Circle()
                                             .stroke(
                                                 LinearGradient(
-                                                    colors: [appState.accentColor.swiftUIColor.opacity(0.8), appState.accentColor.swiftUIColor.opacity(0.4)],
+                                                    colors: [Color.white.opacity(0.8), Color.white.opacity(0.4)],
                                                     startPoint: .topLeading,
                                                     endPoint: .bottomTrailing
                                                 ),
@@ -201,13 +201,13 @@ struct RecordingView: View {
                                 }
                                 .scaleEffect(1.0)
                                 .animation(.spring(response: 0.4, dampingFraction: 0.6), value: showSaveButton)
+                                .offset(x: 4)
                                 
                                 Spacer()
                                 
                                 Color.clear.frame(width: 56, height: 56)
                             }
-                            .padding(.horizontal, 28)
-                            .offset(x: 4)
+                            .padding(.horizontal, 32)
                             .transition(.asymmetric(
                                 insertion: .opacity.combined(with: .scale(scale: 1.1)),
                                 removal: .opacity.combined(with: .scale(scale: 0.9))
@@ -249,13 +249,13 @@ struct RecordingView: View {
                                     toggleRecording()
                                 }) {
                                     ZStack {
-                                        // Outer ring with accent color glow
+                                        // Outer ring with accent color when recording, white when idle
                                         Circle()
                                             .stroke(
                                                 LinearGradient(
                                                     colors: videoManager.isRecording ?
                                                         [appState.accentColor.swiftUIColor.opacity(0.8), appState.accentColor.swiftUIColor.opacity(0.4)] :
-                                                        [appState.accentColor.swiftUIColor.opacity(0.6), appState.accentColor.swiftUIColor.opacity(0.2)],
+                                                        [Color.white.opacity(0.6), Color.white.opacity(0.2)],
                                                     startPoint: .topLeading,
                                                     endPoint: .bottomTrailing
                                                 ),
