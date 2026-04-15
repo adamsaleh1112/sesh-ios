@@ -1,69 +1,60 @@
-# Becoming
+# Honed
 
-**Talk to your future self.**
+**Track your fitness journey.**
 
-Becoming is a platform built to bring daily video journaling back to the center of personal growth.
-
-It gives you a single place to record authentic daily reflections, track your consistency, and watch your progress unfold over time — all in a high-contrast, minimalist interface designed for focus.
+Honed is a minimalist fitness tracking app that helps you log workouts, track consistency, and monitor your progress over time — all in a high-contrast, focused interface designed for athletes.
 
 ---
 
 ### `$ features`
 
-📹 Daily Video Recording
-- One-take recording mode for authenticity
-- Front camera by default for personal reflection
-- 10-minute limit to prevent perfectionism
-- Camera flip button for different perspectives
-- Rate your day 1-10 with visual feedback
-- High-quality 1920x1080 30fps recording
-
-📅 Calendar Timeline
-- Visual calendar with video thumbnails
-- Swipe horizontally through months
-- Tap any day to watch that entry
-- Blue dot indicator for today
-- Rating color dots on each day
+� Calendar Tracking
+- Visual calendar with horizontal month swiping
+- Tap any day to log a workout
+- Clear visual indicators for completed days
+- Swipe through months to see your history
 
 🔥 Streak Tracking
-- Identity-based feedback ("You've shown up X days")
-- Consistency tiers from beginner to life chronicler
-- Daily motivational push notifications
+- Current streak display on profile
+- Longest streak tracking
+- Visual feedback for consistency
 - Built for habit formation
-- Interactive streak popup with celebratory glint animation
-- Color-coded streak display based on streak length
 
-📊 Journey Analytics
-- Comprehensive "Your Journey" statistics dashboard
-- Total video entries count
-- Rating breakdowns: Perfect (10), Good (7-9), Mid (5-6), Bad (1-4)
-- Date started tracking
-- Longest and current streak display
-- Consistency tier progression
+🏆 Records & PRs
+- Dedicated tab for personal records
+- Track your best lifts and times
+- Monitor progress over time
+
+� Profile & Settings
+- Workout statistics dashboard
+- Total workouts count
+- Dark/light theme toggle
+- Personalized with your name
+- All settings in one place
 
 🔒 Privacy First
-- All videos stored locally on device
+- All data stored locally on device
 - No data sent to external servers
-- You own your content completely
+- You own your data completely
 - Secure and private by design
 
 🎨 Modern Design
-- High-contrast dark UI theme
+- High-contrast dark/light UI themes
 - Smooth spring animations throughout
-- Rounded capsules and cards
-- Intuitive tab navigation
+- Rounded cards and clean typography
+- Intuitive 3-tab navigation (Home, Records, Profile)
 - Haptic feedback for interactions
 
 ---
 
 ### `$ vision`
 
-Daily reflection is one of the most powerful habits for personal growth — but there's no simple, focused place to do it.
+Consistency is the foundation of fitness progress — but tracking it should be simple and frictionless.
 
-Becoming changes that.
+Honed changes that.
 
 The goal is simple:
-> Make it easy to build a daily video journaling habit, stay consistent, and never miss a day of documenting your journey.
+> Make it easy to log workouts, track your streaks, and stay accountable to your fitness goals.
 
 ---
 
@@ -82,31 +73,24 @@ The goal is simple:
 ### `$ current-status`
 
 ✅ **Implemented v1.0**
-- Full-screen video recording interface
 - Calendar timeline with horizontal swiping
-- Video thumbnail generation and display
-- Streak tracking system with interactive popup
-- Daily notification scheduling with contextual permissions
-- Video playback with native player
-- High-contrast dark UI design
-- Front/back camera switching
-- Animated recording timer
-- Day rating system (1-10 scale) with visual feedback
-- Your Journey analytics dashboard
-- Name input during onboarding
-- Optimized video compression (MP4)
-- Background processing for file operations
-- Cached haptic feedback for instant response
-- Smooth spring animations across all popups
-- Entry status navigation to recording screen
+- Workout logging by date
+- Streak tracking (current and longest)
+- Profile with workout statistics
+- Records/PRs tracking tab
+- Dark/light theme toggle
+- Onboarding flow with name input
+- Haptic feedback for interactions
+- Smooth spring animations
+- 3-tab navigation (Home, Records, Profile)
 
 🚧 **Future Enhancements**
 - Cloud backup integration
-- "On this day" feature (1 year ago videos)
-- Side-by-side year comparisons
-- Export and sharing features
-- Widget support for home screen
 - iCloud sync across devices
+- Widget support for home screen
+- Export and sharing features
+- Detailed workout notes
+- Exercise-specific tracking
 
 ---
 
@@ -120,22 +104,22 @@ The goal is simple:
 ### `$ installation`
 
 ```bash
-git clone https://github.com/adamsaleh1112/becoming-ios.git
-cd becoming-ios
-open Becoming.xcodeproj
+git clone https://github.com/adamsaleh1112/honed-ios.git
+cd honed-ios
+open Honed.xcodeproj
 ```
 
 **Requirements:**
 - Xcode 15.0+
-- iOS 17.0+
-- iPhone with camera
+- iOS 18.0+
+- iPhone
 
 **Setup:**
-1. Open `Becoming.xcodeproj` in Xcode
+1. Open `Honed.xcodeproj` in Xcode
 2. Select your development team
-3. Build and run on a physical device (camera required)
-4. Complete onboarding and grant camera permissions
+3. Build and run on your device
+4. Complete onboarding
 
 ---
 
-**Remember**: Don't let your life go unrecorded. Talk to your future self.
+**Remember**: Stay consistent. Stay Honed.
