@@ -39,8 +39,8 @@ struct OnboardingView: View {
                 // Button with animation
                 Button(action: nextStep) {
                     Text(buttonText)
-                        .font(.system(size: 18, weight: .semibold, ))
-                        .foregroundColor(currentStep == 1 ? .white : .black)
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.black)
                         .frame(maxWidth: .infinity)
                         .frame(height: 56)
                         .background(
@@ -152,15 +152,15 @@ struct AnimatedMeshGradientBackground: View {
                 [0.0, 1.0], [0.5, 1.0], [1.0, 1.0]
             ],
             colors: [
-                Color(red: 0.051, green: 0.271, blue: 0.675),   // Deep blue
-                Color(red: 0.427, green: 0.231, blue: 0.851),   // Purple
-                Color(red: 0.922, green: 0.624, blue: 0.961),   // Pink
-                Color(red: 0.098, green: 0.565, blue: 0.902),   // Bright blue
-                isAnimating ? Color(red: 0.341, green: 0.851, blue: 0.851) : Color(red: 0.969, green: 0.486, blue: 0.686), // Cyan / Light pink
-                Color(red: 0.922, green: 0.624, blue: 0.961),   // Pink
-                Color(red: 0.427, green: 0.231, blue: 0.851),   // Purple
-                Color(red: 0.098, green: 0.565, blue: 0.902),   // Bright blue
-                Color(red: 0.051, green: 0.271, blue: 0.675)    // Deep blue
+                Color(red: 0.5, green: 0.7, blue: 0.15),        // Dark lime
+                Color(red: 0.69, green: 0.851, blue: 0.212),    // Base lime #b0d936
+                Color(red: 0.8, green: 0.9, blue: 0.35),        // Light lime
+                Color(red: 0.6, green: 0.78, blue: 0.18),       // Medium lime
+                isAnimating ? Color(red: 0.75, green: 0.88, blue: 0.3) : Color(red: 0.65, green: 0.82, blue: 0.25), // Yellow-green / Lime
+                Color(red: 0.8, green: 0.9, blue: 0.35),        // Light lime
+                Color(red: 0.69, green: 0.851, blue: 0.212),    // Base lime #b0d936
+                Color(red: 0.6, green: 0.78, blue: 0.18),       // Medium lime
+                Color(red: 0.5, green: 0.7, blue: 0.15)         // Dark lime
             ]
         )
         .onAppear {

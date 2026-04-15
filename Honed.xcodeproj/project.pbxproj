@@ -7,35 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A26592E42F8E055500625236 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26592E32F8E055500625236 /* OnboardingView.swift */; };
-		A26592E62F8E064000625236 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26592E52F8E064000625236 /* HapticManager.swift */; };
-		A2A3337C2F8DFCCA00EACAEA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A333742F8DFCCA00EACAEA /* SettingsView.swift */; };
-		A2A3337D2F8DFCCA00EACAEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A333782F8DFCCA00EACAEA /* ContentView.swift */; };
-		A2A3337E2F8DFCCA00EACAEA /* CalendarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3336F2F8DFCCA00EACAEA /* CalendarEntry.swift */; };
-		A2A3337F2F8DFCCA00EACAEA /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3336C2F8DFCCA00EACAEA /* CalendarManager.swift */; };
-		A2A333802F8DFCCA00EACAEA /* BecomingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A333772F8DFCCA00EACAEA /* BecomingApp.swift */; };
-		A2A333812F8DFCCA00EACAEA /* CalendarTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A333732F8DFCCA00EACAEA /* CalendarTimelineView.swift */; };
-		A2A333822F8DFCCA00EACAEA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3336E2F8DFCCA00EACAEA /* AppState.swift */; };
-		A2A333832F8DFCCA00EACAEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2A333762F8DFCCA00EACAEA /* Assets.xcassets */; };
-		A2A333852F8DFCCA00EACAEA /* Sesh.icon in Resources */ = {isa = PBXBuildFile; fileRef = A2A3337A2F8DFCCA00EACAEA /* Sesh.icon */; };
-		A2A333862F8DFCCA00EACAEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2A333712F8DFCCA00EACAEA /* Preview Assets.xcassets */; };
+				A2F454A82F90332C00D0D7C0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454982F90332C00D0D7C0 /* AppState.swift */; };
+		A2F454A92F90332C00D0D7C0 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F4549E2F90332C00D0D7C0 /* OnboardingView.swift */; };
+		A2F454AA2F90332C00D0D7C0 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454962F90332C00D0D7C0 /* HapticManager.swift */; };
+		A2F454AB2F90332C00D0D7C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454A32F90332C00D0D7C0 /* ContentView.swift */; };
+		A2F454AC2F90332C00D0D7C0 /* CalendarTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F4549D2F90332C00D0D7C0 /* CalendarTimelineView.swift */; };
+		A2F454AD2F90332C00D0D7C0 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454952F90332C00D0D7C0 /* CalendarManager.swift */; };
+		A2F454AE2F90332C00D0D7C0 /* BecomingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454A22F90332C00D0D7C0 /* BecomingApp.swift */; };
+		A2F454AF2F90332C00D0D7C0 /* CalendarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454992F90332C00D0D7C0 /* CalendarEntry.swift */; };
+		A2F454B02F90332C00D0D7C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2F4549B2F90332C00D0D7C0 /* Preview Assets.xcassets */; };
+		A2F454B22F90332C00D0D7C0 /* Honed.icon in Resources */ = {isa = PBXBuildFile; fileRef = A2F454A42F90332C00D0D7C0 /* Honed.icon */; };
+		A2F454B32F90332C00D0D7C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2F454A12F90332C00D0D7C0 /* Assets.xcassets */; };
+		A2F454B62F90379200D0D7C0 /* RecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454B52F90379200D0D7C0 /* RecordsView.swift */; };
+		A2F454B72F90379200D0D7C0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454B42F90379200D0D7C0 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A1000000000000000031 /* Sesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A26592E32F8E055500625236 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		A26592E52F8E064000625236 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
-		A2A3336C2F8DFCCA00EACAEA /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
-		A2A3336E2F8DFCCA00EACAEA /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		A2A3336F2F8DFCCA00EACAEA /* CalendarEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEntry.swift; sourceTree = "<group>"; };
-		A2A333712F8DFCCA00EACAEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A2A333732F8DFCCA00EACAEA /* CalendarTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTimelineView.swift; sourceTree = "<group>"; };
-		A2A333742F8DFCCA00EACAEA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		A2A333762F8DFCCA00EACAEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A2A333772F8DFCCA00EACAEA /* BecomingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomingApp.swift; sourceTree = "<group>"; };
-		A2A333782F8DFCCA00EACAEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A2A333792F8DFCCA00EACAEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A2A3337A2F8DFCCA00EACAEA /* Sesh.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = Sesh.icon; sourceTree = "<group>"; };
+		A1000000000000000031 /* Honed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Honed.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2F454952F90332C00D0D7C0 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		A2F454962F90332C00D0D7C0 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		A2F454982F90332C00D0D7C0 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		A2F454992F90332C00D0D7C0 /* CalendarEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEntry.swift; sourceTree = "<group>"; };
+		A2F4549B2F90332C00D0D7C0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A2F4549D2F90332C00D0D7C0 /* CalendarTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTimelineView.swift; sourceTree = "<group>"; };
+		A2F4549E2F90332C00D0D7C0 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+				A2F454A12F90332C00D0D7C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A2F454A22F90332C00D0D7C0 /* BecomingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomingApp.swift; sourceTree = "<group>"; };
+		A2F454A32F90332C00D0D7C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A2F454A42F90332C00D0D7C0 /* Honed.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = Honed.icon; sourceTree = "<group>"; };
+		A2F454A52F90332C00D0D7C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2F454B42F90379200D0D7C0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		A2F454B52F90379200D0D7C0 /* RecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +52,7 @@
 		A1000000000000000034 = {
 			isa = PBXGroup;
 			children = (
-				A2A3337B2F8DFCCA00EACAEA /* Sesh */,
+				A2F454A62F90332C00D0D7C0 /* Honed */,
 				A1000000000000000036 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,69 +60,70 @@
 		A1000000000000000036 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A1000000000000000031 /* Sesh.app */,
+				A1000000000000000031 /* Honed.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A2A3336D2F8DFCCA00EACAEA /* Managers */ = {
+		A2F454972F90332C00D0D7C0 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				A26592E52F8E064000625236 /* HapticManager.swift */,
-				A2A3336C2F8DFCCA00EACAEA /* CalendarManager.swift */,
+				A2F454952F90332C00D0D7C0 /* CalendarManager.swift */,
+				A2F454962F90332C00D0D7C0 /* HapticManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		A2A333702F8DFCCA00EACAEA /* Models */ = {
+		A2F4549A2F90332C00D0D7C0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A2A3336E2F8DFCCA00EACAEA /* AppState.swift */,
-				A2A3336F2F8DFCCA00EACAEA /* CalendarEntry.swift */,
+				A2F454982F90332C00D0D7C0 /* AppState.swift */,
+				A2F454992F90332C00D0D7C0 /* CalendarEntry.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		A2A333722F8DFCCA00EACAEA /* Preview Content */ = {
+		A2F4549C2F90332C00D0D7C0 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				A2A333712F8DFCCA00EACAEA /* Preview Assets.xcassets */,
+				A2F4549B2F90332C00D0D7C0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		A2A333752F8DFCCA00EACAEA /* Views */ = {
+		A2F454A02F90332C00D0D7C0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A26592E32F8E055500625236 /* OnboardingView.swift */,
-				A2A333732F8DFCCA00EACAEA /* CalendarTimelineView.swift */,
-				A2A333742F8DFCCA00EACAEA /* SettingsView.swift */,
-			);
+				A2F454B42F90379200D0D7C0 /* ProfileView.swift */,
+				A2F454B52F90379200D0D7C0 /* RecordsView.swift */,
+				A2F4549D2F90332C00D0D7C0 /* CalendarTimelineView.swift */,
+				A2F4549E2F90332C00D0D7C0 /* OnboardingView.swift */,
+							);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		A2A3337B2F8DFCCA00EACAEA /* Sesh */ = {
+		A2F454A62F90332C00D0D7C0 /* Honed */ = {
 			isa = PBXGroup;
 			children = (
-				A2A3336D2F8DFCCA00EACAEA /* Managers */,
-				A2A333702F8DFCCA00EACAEA /* Models */,
-				A2A333722F8DFCCA00EACAEA /* Preview Content */,
-				A2A333752F8DFCCA00EACAEA /* Views */,
-				A2A333762F8DFCCA00EACAEA /* Assets.xcassets */,
-				A2A333772F8DFCCA00EACAEA /* BecomingApp.swift */,
-				A2A333782F8DFCCA00EACAEA /* ContentView.swift */,
-				A2A333792F8DFCCA00EACAEA /* Info.plist */,
-				A2A3337A2F8DFCCA00EACAEA /* Sesh.icon */,
+				A2F454972F90332C00D0D7C0 /* Managers */,
+				A2F4549A2F90332C00D0D7C0 /* Models */,
+				A2F4549C2F90332C00D0D7C0 /* Preview Content */,
+				A2F454A02F90332C00D0D7C0 /* Views */,
+				A2F454A12F90332C00D0D7C0 /* Assets.xcassets */,
+				A2F454A22F90332C00D0D7C0 /* BecomingApp.swift */,
+				A2F454A32F90332C00D0D7C0 /* ContentView.swift */,
+				A2F454A42F90332C00D0D7C0 /* Honed.icon */,
+				A2F454A52F90332C00D0D7C0 /* Info.plist */,
 			);
-			path = Sesh;
+			path = Honed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A1000000000000000041 /* Sesh */ = {
+		A1000000000000000041 /* Honed */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1000000000000000042 /* Build configuration list for PBXNativeTarget "Sesh" */;
+			buildConfigurationList = A1000000000000000042 /* Build configuration list for PBXNativeTarget "Honed" */;
 			buildPhases = (
 				A1000000000000000043 /* Sources */,
 				A1000000000000000033 /* Frameworks */,
@@ -128,9 +131,9 @@
 			);
 			buildRules = (
 			);
-			name = Sesh;
+			name = Honed;
 			productName = Sesh;
-			productReference = A1000000000000000031 /* Sesh.app */;
+			productReference = A1000000000000000031 /* Honed.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -148,7 +151,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A1000000000000000046 /* Build configuration list for PBXProject "Sesh" */;
+			buildConfigurationList = A1000000000000000046 /* Build configuration list for PBXProject "Honed" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -161,7 +164,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A1000000000000000041 /* Sesh */,
+				A1000000000000000041 /* Honed */,
 			);
 		};
 /* End PBXProject section */
@@ -170,9 +173,9 @@
 		A1000000000000000044 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
-				A2A333832F8DFCCA00EACAEA /* Assets.xcassets in Resources */,
-				A2A333852F8DFCCA00EACAEA /* Sesh.icon in Resources */,
-				A2A333862F8DFCCA00EACAEA /* Preview Assets.xcassets in Resources */,
+				A2F454B02F90332C00D0D7C0 /* Preview Assets.xcassets in Resources */,
+				A2F454B22F90332C00D0D7C0 /* Honed.icon in Resources */,
+				A2F454B32F90332C00D0D7C0 /* Assets.xcassets in Resources */,
 			);
 		};
 /* End PBXResourcesBuildPhase section */
@@ -181,21 +184,22 @@
 		A1000000000000000043 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
-				A2A3337C2F8DFCCA00EACAEA /* SettingsView.swift in Sources */,
-				A2A3337D2F8DFCCA00EACAEA /* ContentView.swift in Sources */,
-				A2A3337E2F8DFCCA00EACAEA /* CalendarEntry.swift in Sources */,
-				A2A3337F2F8DFCCA00EACAEA /* CalendarManager.swift in Sources */,
-				A2A333802F8DFCCA00EACAEA /* BecomingApp.swift in Sources */,
-				A26592E42F8E055500625236 /* OnboardingView.swift in Sources */,
-				A2A333812F8DFCCA00EACAEA /* CalendarTimelineView.swift in Sources */,
-				A26592E62F8E064000625236 /* HapticManager.swift in Sources */,
-				A2A333822F8DFCCA00EACAEA /* AppState.swift in Sources */,
+								A2F454A82F90332C00D0D7C0 /* AppState.swift in Sources */,
+				A2F454A92F90332C00D0D7C0 /* OnboardingView.swift in Sources */,
+				A2F454AA2F90332C00D0D7C0 /* HapticManager.swift in Sources */,
+				A2F454AB2F90332C00D0D7C0 /* ContentView.swift in Sources */,
+				A2F454AC2F90332C00D0D7C0 /* CalendarTimelineView.swift in Sources */,
+				A2F454B62F90379200D0D7C0 /* RecordsView.swift in Sources */,
+				A2F454B72F90379200D0D7C0 /* ProfileView.swift in Sources */,
+				A2F454AD2F90332C00D0D7C0 /* CalendarManager.swift in Sources */,
+				A2F454AE2F90332C00D0D7C0 /* BecomingApp.swift in Sources */,
+				A2F454AF2F90332C00D0D7C0 /* CalendarEntry.swift in Sources */,
 			);
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		A1000000000000000047 /* Debug configuration for PBXProject "Sesh" */ = {
+		A1000000000000000047 /* Debug configuration for PBXProject "Honed" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -258,7 +262,7 @@
 			};
 			name = Debug;
 		};
-		A1000000000000000048 /* Release configuration for PBXProject "Sesh" */ = {
+		A1000000000000000048 /* Release configuration for PBXProject "Honed" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -314,18 +318,18 @@
 			};
 			name = Release;
 		};
-		A1000000000000000049 /* Debug configuration for PBXNativeTarget "Sesh" */ = {
+		A1000000000000000049 /* Debug configuration for PBXNativeTarget "Honed" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = Sesh;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Honed;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Sesh/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Honed/Preview Content\"";
 				DEVELOPMENT_TEAM = GG2H8A5KTB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Sesh/Info.plist;
+				INFOPLIST_FILE = Honed/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -345,18 +349,18 @@
 			};
 			name = Debug;
 		};
-		A1000000000000000050 /* Release configuration for PBXNativeTarget "Sesh" */ = {
+		A1000000000000000050 /* Release configuration for PBXNativeTarget "Honed" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = Sesh;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Honed;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Sesh/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Honed/Preview Content\"";
 				DEVELOPMENT_TEAM = GG2H8A5KTB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Sesh/Info.plist;
+				INFOPLIST_FILE = Honed/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -379,19 +383,19 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A1000000000000000042 /* Build configuration list for PBXNativeTarget "Sesh" */ = {
+		A1000000000000000042 /* Build configuration list for PBXNativeTarget "Honed" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1000000000000000049 /* Debug configuration for PBXNativeTarget "Sesh" */,
-				A1000000000000000050 /* Release configuration for PBXNativeTarget "Sesh" */,
+				A1000000000000000049 /* Debug configuration for PBXNativeTarget "Honed" */,
+				A1000000000000000050 /* Release configuration for PBXNativeTarget "Honed" */,
 			);
 			defaultConfigurationName = Release;
 		};
-		A1000000000000000046 /* Build configuration list for PBXProject "Sesh" */ = {
+		A1000000000000000046 /* Build configuration list for PBXProject "Honed" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1000000000000000047 /* Debug configuration for PBXProject "Sesh" */,
-				A1000000000000000048 /* Release configuration for PBXProject "Sesh" */,
+				A1000000000000000047 /* Debug configuration for PBXProject "Honed" */,
+				A1000000000000000048 /* Release configuration for PBXProject "Honed" */,
 			);
 			defaultConfigurationName = Release;
 		};

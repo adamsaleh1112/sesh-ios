@@ -30,19 +30,29 @@ struct MainView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            // Calendar Tab
+            // Home Tab - Calendar
             HomeContentView(selectedDate: $selectedDate)
                 .tabItem {
                     Image(systemName: "calendar")
+                    Text("Home")
                 }
                 .tag(0)
             
-            // Settings Tab
-            SettingsView()
+            // Records Tab
+            RecordsView()
                 .tabItem {
-                    Image(systemName: "gear")
+                    Image(systemName: "trophy.fill")
+                    Text("Records")
                 }
                 .tag(1)
+            
+            // Profile Tab
+            ProfileView()
+                .tabItem {
+                    Image(systemName: "person.fill")
+                    Text("Profile")
+                }
+                .tag(2)
         }
         .tint(appState.theme.textPrimary)
     }
@@ -161,21 +171,24 @@ struct DateHeaderView: View {
         HStack(alignment: .firstTextBaseline, spacing: 0) {
             // Month (grayed out)
             Text(monthNumber)
-                .font(.system(size: 58, weight: .bold))
+                .font(.system(size: 48, weight: .regular))
+                .fontWidth(.expanded)
                 .foregroundColor(appState.theme.textMuted)
                 .transition(.asymmetric(insertion: .move(edge: .leading).combined(with: .opacity).combined(with: .scale(scale: 0.5)), removal: .move(edge: .leading).combined(with: .opacity).combined(with: .scale(scale: 0.5))))
                 .id("month-\(monthNumber)")
             
             // Day (primary text)
             Text(dayNumber)
-                .font(.system(size: 58, weight: .bold))
+                .font(.system(size: 48, weight: .regular))
+                .fontWidth(.expanded)
                 .foregroundColor(appState.theme.textPrimary)
                 .transition(.asymmetric(insertion: .scale(scale: 1.2).combined(with: .opacity), removal: .scale(scale: 0.8).combined(with: .opacity)))
                 .id("day-\(dayNumber)")
             
             // Year (grayed out)
             Text(yearNumber)
-                .font(.system(size: 58, weight: .bold))
+                .font(.system(size: 48, weight: .regular))
+                .fontWidth(.expanded)
                 .foregroundColor(appState.theme.textMuted)
                 .transition(.asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity).combined(with: .scale(scale: 0.5)), removal: .move(edge: .trailing).combined(with: .opacity).combined(with: .scale(scale: 0.5))))
                 .id("year-\(yearNumber)")
@@ -183,8 +196,8 @@ struct DateHeaderView: View {
             // Accent color bullet for today
             if isToday {
                 Text("•")
-                    .font(.system(size: 58, weight: .bold))
-                        .foregroundColor(accentColor)
+                    .font(.system(size: 48, weight: .bold))
+                    .foregroundColor(accentColor)
                     .padding(.leading, 4)
                     .transition(.asymmetric(insertion: .scale(scale: 1.2).combined(with: .opacity), removal: .scale(scale: 0.8).combined(with: .opacity)))
             }
@@ -192,8 +205,9 @@ struct DateHeaderView: View {
             Spacer()
             
             // Day of week abbreviation (top right)
-            Text(dayAbbreviation)
-                .font(.system(size: 26, weight: .medium))
+            Text(dayAbbreviation.uppercased())
+                .font(.system(size: 48, weight: .regular))
+                .fontWidth(.compressed)
                 .foregroundColor(appState.theme.textMuted)
                 .transition(.asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity).combined(with: .scale(scale: 0.5)), removal: .move(edge: .trailing).combined(with: .opacity).combined(with: .scale(scale: 0.5))))
                 .id("dayAbbr-\(dayAbbreviation)")

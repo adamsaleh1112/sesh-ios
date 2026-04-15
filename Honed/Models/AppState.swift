@@ -2,22 +2,11 @@ import SwiftUI
 import Combine
 
 enum AccentColorOption: String, CaseIterable {
-    case blue = "Blue"
-    case green = "Green"
-    case orange = "Orange"
-    case pink = "Pink"
-    case purple = "Purple"
-    case red = "Red"
+    case lime = "Lime"
     
     var swiftUIColor: Color {
-        switch self {
-        case .blue: return .blue
-        case .green: return .green
-        case .orange: return .orange
-        case .pink: return .pink
-        case .purple: return .purple
-        case .red: return .red
-        }
+        // Fixed lime green: #b0d936
+        Color(red: 0.69, green: 0.851, blue: 0.212)
     }
 }
 
@@ -65,9 +54,7 @@ class AppState: ObservableObject {
     @Published var isDarkMode: Bool {
         didSet { saveUserDefaults() }
     }
-    @Published var accentColor: AccentColorOption {
-        didSet { saveUserDefaults() }
-    }
+    @Published var accentColor: AccentColorOption = .lime
     @Published var userName: String {
         didSet { saveUserDefaults() }
     }
@@ -90,7 +77,7 @@ class AppState: ObservableObject {
             self.isDarkMode = defaults.bool(forKey: "isDarkMode")
         }
         
-        self.accentColor = AccentColorOption(rawValue: defaults.string(forKey: "accentColor") ?? "Blue") ?? .blue
+        // Accent color is fixed to lime green
         self.userName = defaults.string(forKey: "userName") ?? ""
         
         if let timeData = defaults.object(forKey: "notificationTime") as? Date {
@@ -107,7 +94,6 @@ class AppState: ObservableObject {
         let defaults = UserDefaults.standard
         defaults.set(isOnboarded, forKey: "isOnboarded")
         defaults.set(isDarkMode, forKey: "isDarkMode")
-        defaults.set(accentColor.rawValue, forKey: "accentColor")
         defaults.set(userName, forKey: "userName")
         defaults.set(notificationTime, forKey: "notificationTime")
     }
