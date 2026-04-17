@@ -52,6 +52,7 @@ struct RecordsView: View {
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                     .ignoresSafeArea(.container, edges: .bottom)
+                    .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))
                     
                     // Custom Tab Bar (completely in front)
                     VStack {
@@ -123,27 +124,43 @@ struct RecordsView: View {
 struct CustomTabBar: View {
     @Binding var selectedTab: Int
     @EnvironmentObject var appState: AppState
+    @Namespace private var animation
     
-    let tabs = ["Records", "Progress", "Badges"]
+    let tabs = ["RECORDS", "PROGRESS", "BADGES"]
     
     var body: some View {
-        HStack(spacing: 0) {
-            ForEach(0..<tabs.count, id: \.self) { index in
-                Button(action: {
-                    selectedTab = index
-                }) {
-                    VStack(spacing: 8) {
-                        Text(tabs[index])
-                            .font(.system(size: 16, weight: selectedTab == index ? .semibold : .medium))
-                            .foregroundColor(selectedTab == index ? appState.theme.textPrimary : appState.theme.textSecondary)
-                        
-                        Rectangle()
-                            .fill(selectedTab == index ? appState.accentColor.swiftUIColor : Color.clear)
-                            .frame(height: 2)
+        VStack(spacing: 0) {
+            HStack(spacing: 0) {
+                ForEach(0..<tabs.count, id: \.self) { index in
+                    Button(action: {
+                        DispatchQueue.main.async {
+                            selectedTab = index
+                        }
+                    }) {
+                        VStack(spacing: 0) {
+                            Text(tabs[index])
+                                .font(.system(size: 20, weight: selectedTab == index ? .semibold : .medium))
+                                .fontWidth(.compressed)
+                                .foregroundColor(selectedTab == index ? appState.theme.textPrimary : appState.theme.textSecondary)
+                        }
                     }
+                    .frame(maxWidth: .infinity)
                 }
-                .frame(maxWidth: .infinity)
             }
+            .padding(.bottom, 4)
+            
+            // Animated indicator
+            GeometryReader { geometry in
+                let tabWidth = geometry.size.width / CGFloat(tabs.count)
+                let indicatorOffset = CGFloat(selectedTab) * tabWidth + (tabWidth - 40) / 2
+                
+                Rectangle()
+                    .fill(appState.accentColor.swiftUIColor)
+                    .frame(width: 40, height: 3)
+                    .offset(x: indicatorOffset)
+                    .animation(.spring(response: 0.3, dampingFraction: 0.8), value: selectedTab)
+            }
+            .frame(height: 3)
         }
         .padding(.bottom, 20)
     }
@@ -259,6 +276,7 @@ struct RecordsTabView: View {
             .padding(.top, 120)
             .padding(.bottom, 60)
         }
+        .scrollIndicators(.hidden)
     }
 }
 
@@ -316,6 +334,7 @@ struct ProgressTabView: View {
             .padding(.top, 120)
             .padding(.bottom, 60)
         }
+        .scrollIndicators(.hidden)
     }
 }
 
@@ -399,6 +418,7 @@ struct BadgesTabView: View {
             .padding(.top, 120)
             .padding(.bottom, 60)
         }
+        .scrollIndicators(.hidden)
         .sheet(item: $selectedBadge) { badge in
             BadgeDetailSheet(
                 badge: badge,

@@ -123,6 +123,7 @@ struct ProfileView: View {
                     }
                     .padding(.vertical)
                 }
+                .scrollIndicators(.hidden)
             }
             .navigationTitle("")
             .navigationBarHidden(true)
