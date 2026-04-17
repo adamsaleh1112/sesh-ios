@@ -69,58 +69,6 @@ struct ProfileView: View {
                                     }
                                 }
                                 
-                                // Appearance Settings
-                                SettingsSection(title: "Appearance") {
-                                    VStack(spacing: 14) {
-                                        // Theme selector
-                                        HStack(spacing: 12) {
-                                            Text("Theme")
-                                                .font(.system(size: 16))
-                                                .foregroundColor(appState.theme.textPrimary)
-                                            
-                                            Spacer()
-                                            
-                                            // Capsule icon toggle
-                                            HStack(spacing: 0) {
-                                                // Light button (sun icon)
-                                                Button(action: {
-                                                    appState.isDarkMode = false
-                                                }) {
-                                                    ZStack {
-                                                        Circle()
-                                                            .fill(!appState.isDarkMode ? appState.accentColor.swiftUIColor : Color.clear)
-                                                            .frame(width: 36, height: 36)
-                                                        Image(systemName: "sun.max.fill")
-                                                            .font(.system(size: 14, weight: .semibold))
-                                                            .foregroundColor(!appState.isDarkMode ? .white : appState.theme.textSecondary)
-                                                    }
-                                                    .frame(width: 40, height: 40)
-                                                }
-                                                .buttonStyle(PlainButtonStyle())
-                                                
-                                                // Dark button (moon icon)
-                                                Button(action: {
-                                                    appState.isDarkMode = true
-                                                }) {
-                                                    ZStack {
-                                                        Circle()
-                                                            .fill(appState.isDarkMode ? appState.accentColor.swiftUIColor : Color.clear)
-                                                            .frame(width: 36, height: 36)
-                                                        Image(systemName: "moon.fill")
-                                                            .font(.system(size: 14, weight: .semibold))
-                                                            .foregroundColor(appState.isDarkMode ? .white : appState.theme.textSecondary)
-                                                    }
-                                                    .frame(width: 40, height: 40)
-                                                }
-                                                .buttonStyle(PlainButtonStyle())
-                                            }
-                                            .padding(2)
-                                            .background(appState.theme.cardBackground)
-                                            .clipShape(Capsule())
-                                        }
-                                    }
-                                }
-                                
                                 // About Section
                                 SettingsSection(title: "About") {
                                     VStack(spacing: 16) {
@@ -258,14 +206,12 @@ struct ProfileView: View {
     
     private func resetAllData() {
         let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: "isDarkMode")
         defaults.removeObject(forKey: "userName")
         defaults.removeObject(forKey: "notificationTime")
         defaults.removeObject(forKey: "calendarEntries")
         
         calendarManager.resetAllEntries()
         
-        appState.isDarkMode = true
         appState.userName = ""
     }
 }

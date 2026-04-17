@@ -18,20 +18,6 @@ struct AppTheme {
     let textMuted: Color
     let dotColor: Color
     let stroke: Color
-    let isDarkMode: Bool
-    
-    static var light: AppTheme {
-        AppTheme(
-            background: Color(red: 0.95, green: 0.95, blue: 0.97),
-            cardBackground: Color.white,
-            textPrimary: Color.black,
-            textSecondary: Color.gray,
-            textMuted: Color.gray.opacity(0.6),
-            dotColor: Color.gray.opacity(0.3),
-            stroke: Color.gray.opacity(0.2),
-            isDarkMode: false
-        )
-    }
     
     static var dark: AppTheme {
         AppTheme(
@@ -41,17 +27,13 @@ struct AppTheme {
             textSecondary: Color.gray,
             textMuted: Color.gray.opacity(0.6),
             dotColor: Color.gray.opacity(0.3),
-            stroke: Color.gray.opacity(0.2),
-            isDarkMode: true
+            stroke: Color.gray.opacity(0.2)
         )
     }
 }
 
 class AppState: ObservableObject {
     @Published var isOnboarded: Bool {
-        didSet { saveUserDefaults() }
-    }
-    @Published var isDarkMode: Bool {
         didSet { saveUserDefaults() }
     }
     @Published var accentColor: AccentColorOption = .lime
@@ -63,19 +45,12 @@ class AppState: ObservableObject {
     }
     
     var theme: AppTheme {
-        isDarkMode ? .dark : .light
+        .dark
     }
     
     init() {
         let defaults = UserDefaults.standard
         self.isOnboarded = defaults.bool(forKey: "isOnboarded")
-        
-        // Default to dark mode if not set
-        if defaults.object(forKey: "isDarkMode") == nil {
-            self.isDarkMode = true
-        } else {
-            self.isDarkMode = defaults.bool(forKey: "isDarkMode")
-        }
         
         // Accent color is fixed to lime green
         self.userName = defaults.string(forKey: "userName") ?? ""
@@ -93,7 +68,6 @@ class AppState: ObservableObject {
     func saveUserDefaults() {
         let defaults = UserDefaults.standard
         defaults.set(isOnboarded, forKey: "isOnboarded")
-        defaults.set(isDarkMode, forKey: "isDarkMode")
         defaults.set(userName, forKey: "userName")
         defaults.set(notificationTime, forKey: "notificationTime")
     }

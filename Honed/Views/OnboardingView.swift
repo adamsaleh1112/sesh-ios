@@ -2,143 +2,132 @@ import SwiftUI
 
 struct OnboardingView: View {
     @EnvironmentObject var appState: AppState
-    @State private var currentStep = 0
-    @State private var userName = ""
-
+    @EnvironmentObject var authState: AuthState
+    @StateObject private var onboardingFlow = OnboardingFlow()
+    
     var body: some View {
         ZStack {
             appState.theme.background.ignoresSafeArea()
             
-            VStack(alignment: .center, spacing: 0) {
-                Spacer()
-                
-                // Animated content area
-                VStack(spacing: 40) {
-                    Group {
-                        switch currentStep {
-                        case 0:
-                            NameStep()
-                                .transition(.asymmetric(
-                                    insertion: .opacity.combined(with: .offset(x: 50)),
-                                    removal: .opacity.combined(with: .offset(x: -50))
-                                ))
-                        default:
-                            CompletionStep()
-                                .transition(.asymmetric(
-                                    insertion: .opacity.combined(with: .scale(scale: 0.9)),
-                                    removal: .opacity.combined(with: .scale(scale: 1.1))
-                                ))
-                        }
+            VStack(spacing: 0) {
+                // Progress indicator
+                HStack(spacing: 8) {
+                    ForEach(0..<3, id: \.self) { index in
+                        Capsule()
+                            .fill(progressColor(for: index))
+                            .frame(width: index == currentStepIndex ? 24 : 8, height: 8)
+                            .animation(.spring(response: 0.3), value: currentStepIndex)
                     }
-                    .animation(.spring(response: 0.5, dampingFraction: 0.8), value: currentStep)
                 }
-                .frame(maxWidth: .infinity)
+                .padding(.top, 60)
+                .padding(.horizontal, 24)
+                
+                // Content
+                VStack {
+                    switch authState.currentStep {
+                    case .auth:
+                        AuthView()
+                            .transition(.asymmetric(
+                                insertion: .opacity.combined(with: .offset(x: 50)),
+                                removal: .opacity.combined(with: .offset(x: -50))
+                            ))
+                    case .routineBuilder:
+                        RoutineBuilderView()
+                            .transition(.asymmetric(
+                                insertion: .opacity.combined(with: .offset(x: 50)),
+                                removal: .opacity.combined(with: .offset(x: -50))
+                            ))
+                    case .restDays:
+                        RestDaysView()
+                            .transition(.asymmetric(
+                                insertion: .opacity.combined(with: .offset(x: 50)),
+                                removal: .opacity.combined(with: .offset(x: -50))
+                            ))
+                    case .complete:
+                        CompletionStep()
+                            .transition(.asymmetric(
+                                insertion: .opacity.combined(with: .scale(scale: 0.9)),
+                                removal: .opacity.combined(with: .scale(scale: 1.1))
+                            ))
+                    }
+                }
+                .animation(.spring(response: 0.5, dampingFraction: 0.8), value: authState.currentStep)
                 
                 Spacer()
-                
-                // Button with animation
-                Button(action: nextStep) {
-                    Text(buttonText)
-                        .font(.system(size: 18, weight: .semibold))
-                        .foregroundColor(.black)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 56)
-                        .background(
-                            Group {
-                                if currentStep == 1 {
-                                    AnimatedMeshGradientBackground()
-                                        .clipShape(RoundedRectangle(cornerRadius: 40))
-                                } else {
-                                    RoundedRectangle(cornerRadius: 40)
-                                        .fill(Color.white)
-                                }
-                            }
-                        )
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 40)
-                                .stroke(Color.white.opacity(0.2), lineWidth: 4)
-                        )
-                }
-                .padding(.horizontal, 24)
-                .transition(.asymmetric(
-                    insertion: .opacity.combined(with: .offset(y: 20)),
-                    removal: .opacity
-                ))
-                .animation(.spring(response: 0.6, dampingFraction: 0.7), value: currentStep)
             }
-            .padding(.vertical, 40)
         }
     }
     
-    @ViewBuilder
-    private func NameStep() -> some View {
-        VStack(spacing: 50) {
-            Text("What's your name?")
-                .font(.system(size: 38, weight: .semibold, ))
-                .foregroundColor(appState.theme.textPrimary)
-                .transition(.opacity.combined(with: .scale(scale: 0.95)))
-            
-            TextField("Enter name", text: $userName)
-                .font(.system(size: 32, weight: .medium, ))
-                .foregroundColor(appState.theme.textPrimary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 20)
-                .padding(.vertical, 16)
-                .transition(.opacity.combined(with: .scale(scale: 0.95)))
+    private var currentStepIndex: Int {
+        switch authState.currentStep {
+        case .auth: return 0
+        case .routineBuilder: return 1
+        case .restDays: return 2
+        case .complete: return 2
         }
-        .padding(.horizontal, 32)
     }
     
-    @ViewBuilder
-    private func CompletionStep() -> some View {
+    private func progressColor(for index: Int) -> Color {
+        if index <= currentStepIndex {
+            return appState.accentColor.swiftUIColor
+        }
+        return appState.theme.textMuted.opacity(0.3)
+    }
+}
+
+struct CompletionStep: View {
+    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var authState: AuthState
+    
+    var body: some View {
         VStack(spacing: 50) {
             Text("You're ready!")
-                .font(.system(size: 38, weight: .semibold, ))
+                .font(.system(size: 38, weight: .semibold))
                 .foregroundColor(appState.theme.textPrimary)
                 .transition(.opacity.combined(with: .scale(scale: 0.9)))
             
             Text("Start your journey.")
-                .font(.system(size: 22, weight: .semibold, ))
+                .font(.system(size: 22, weight: .semibold))
                 .foregroundColor(appState.theme.textSecondary)
                 .multilineTextAlignment(.center)
                 .transition(.opacity.combined(with: .offset(y: 15)))
+            
+            Button(action: {
+                HapticManager.shared.heavy()
+                withAnimation(.easeInOut(duration: 0.6)) {
+                    appState.isOnboarded = true
+                }
+                appState.saveUserDefaults()
+            }) {
+                Text("Start your journey")
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(.black)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 56)
+                    .background(
+                        AnimatedMeshGradientBackground()
+                            .clipShape(RoundedRectangle(cornerRadius: 40))
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 40)
+                            .stroke(Color.white.opacity(0.2), lineWidth: 4)
+                    )
+            }
+            .padding(.horizontal, 24)
+            .padding(.top, 40)
+            .transition(.asymmetric(
+                insertion: .opacity.combined(with: .offset(y: 20)),
+                removal: .opacity
+            ))
         }
         .padding(.horizontal, 32)
     }
-    
-    private var buttonText: String {
-        switch currentStep {
-        case 0: // Name step
-            return userName.isEmpty ? "Skip" : "Continue"
-        default: // Completion step
-            return "Start your journey"
-        }
-    }
-    
-    private func nextStep() {
-        // Heavy haptic feedback on button tap
-        HapticManager.shared.heavy()
-        
-        if currentStep == 0 {
-            // Save name if not empty
-            if !userName.isEmpty {
-                appState.userName = userName
-            }
-            
-            withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
-                currentStep += 1
-            }
-        } else {
-            // Complete onboarding
-            withAnimation(.easeInOut(duration: 0.6)) {
-                appState.isOnboarded = true
-            }
-            appState.saveUserDefaults()
-        }
-    }
 }
 
-// Animated mesh gradient background using native SwiftUI MeshGradient
+class OnboardingFlow: ObservableObject {
+    // Placeholder for any shared onboarding state
+}
+
 struct AnimatedMeshGradientBackground: View {
     @State private var isAnimating = false
     
@@ -152,15 +141,15 @@ struct AnimatedMeshGradientBackground: View {
                 [0.0, 1.0], [0.5, 1.0], [1.0, 1.0]
             ],
             colors: [
-                Color(red: 0.5, green: 0.7, blue: 0.15),        // Dark lime
-                Color(red: 0.69, green: 0.851, blue: 0.212),    // Base lime #b0d936
-                Color(red: 0.8, green: 0.9, blue: 0.35),        // Light lime
-                Color(red: 0.6, green: 0.78, blue: 0.18),       // Medium lime
-                isAnimating ? Color(red: 0.75, green: 0.88, blue: 0.3) : Color(red: 0.65, green: 0.82, blue: 0.25), // Yellow-green / Lime
-                Color(red: 0.8, green: 0.9, blue: 0.35),        // Light lime
-                Color(red: 0.69, green: 0.851, blue: 0.212),    // Base lime #b0d936
-                Color(red: 0.6, green: 0.78, blue: 0.18),       // Medium lime
-                Color(red: 0.5, green: 0.7, blue: 0.15)         // Dark lime
+                Color(red: 0.5, green: 0.7, blue: 0.15),
+                Color(red: 0.69, green: 0.851, blue: 0.212),
+                Color(red: 0.8, green: 0.9, blue: 0.35),
+                Color(red: 0.6, green: 0.78, blue: 0.18),
+                isAnimating ? Color(red: 0.75, green: 0.88, blue: 0.3) : Color(red: 0.65, green: 0.82, blue: 0.25),
+                Color(red: 0.8, green: 0.9, blue: 0.35),
+                Color(red: 0.69, green: 0.851, blue: 0.212),
+                Color(red: 0.6, green: 0.78, blue: 0.18),
+                Color(red: 0.5, green: 0.7, blue: 0.15)
             ]
         )
         .onAppear {
@@ -174,4 +163,5 @@ struct AnimatedMeshGradientBackground: View {
 #Preview {
     OnboardingView()
         .environmentObject(AppState())
+        .environmentObject(AuthState())
 }

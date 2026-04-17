@@ -154,7 +154,8 @@ struct CalendarDayView: View {
                 
                 // Day number
                 Text(dayFormatter.string(from: date))
-                    .font(.system(size: 22, weight: hasEntry ? .bold : .medium, ))
+                    .font(.system(size: 26, weight: hasEntry ? .bold : .medium, ))
+                    .fontWidth(.compressed)
                     .foregroundColor(textColor)
                     .scaleEffect(isPressed ? 0.9 : 1.0)
                     .animation(.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0), value: isPressed)
@@ -200,9 +201,9 @@ struct CalendarDayView: View {
         if isSelected {
             return appState.accentColor.swiftUIColor.opacity(0.3)
         } else if isToday {
-            return appState.theme.isDarkMode ? Color.white.opacity(0.2) : Color.black.opacity(0.1)
+            return Color.white.opacity(0.2)
         } else if hasEntry {
-            return appState.theme.isDarkMode ? Color.white.opacity(0.1) : Color.black.opacity(0.05)
+            return Color.white.opacity(0.1)
         } else {
             return Color.clear
         }

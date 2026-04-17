@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-				A2F454A82F90332C00D0D7C0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454982F90332C00D0D7C0 /* AppState.swift */; };
+		A2F454A82F90332C00D0D7C0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454982F90332C00D0D7C0 /* AppState.swift */; };
 		A2F454A92F90332C00D0D7C0 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F4549E2F90332C00D0D7C0 /* OnboardingView.swift */; };
 		A2F454AA2F90332C00D0D7C0 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454962F90332C00D0D7C0 /* HapticManager.swift */; };
 		A2F454AB2F90332C00D0D7C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454A32F90332C00D0D7C0 /* ContentView.swift */; };
@@ -20,6 +20,10 @@
 		A2F454B32F90332C00D0D7C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2F454A12F90332C00D0D7C0 /* Assets.xcassets */; };
 		A2F454B62F90379200D0D7C0 /* RecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454B52F90379200D0D7C0 /* RecordsView.swift */; };
 		A2F454B72F90379200D0D7C0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454B42F90379200D0D7C0 /* ProfileView.swift */; };
+		A2F454B92F9066FC00D0D7C0 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454B82F9066FC00D0D7C0 /* AuthState.swift */; };
+		A2F454BD2F90671100D0D7C0 /* RestDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454BB2F90671100D0D7C0 /* RestDaysView.swift */; };
+		A2F454BE2F90671100D0D7C0 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454BA2F90671100D0D7C0 /* AuthView.swift */; };
+		A2F454BF2F90671100D0D7C0 /* RoutineBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F454BC2F90671100D0D7C0 /* RoutineBuilderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +35,17 @@
 		A2F4549B2F90332C00D0D7C0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A2F4549D2F90332C00D0D7C0 /* CalendarTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTimelineView.swift; sourceTree = "<group>"; };
 		A2F4549E2F90332C00D0D7C0 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-				A2F454A12F90332C00D0D7C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A2F454A12F90332C00D0D7C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2F454A22F90332C00D0D7C0 /* BecomingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomingApp.swift; sourceTree = "<group>"; };
 		A2F454A32F90332C00D0D7C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A2F454A42F90332C00D0D7C0 /* Honed.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = Honed.icon; sourceTree = "<group>"; };
 		A2F454A52F90332C00D0D7C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2F454B42F90379200D0D7C0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A2F454B52F90379200D0D7C0 /* RecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsView.swift; sourceTree = "<group>"; };
+		A2F454B82F9066FC00D0D7C0 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
+		A2F454BA2F90671100D0D7C0 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		A2F454BB2F90671100D0D7C0 /* RestDaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestDaysView.swift; sourceTree = "<group>"; };
+		A2F454BC2F90671100D0D7C0 /* RoutineBuilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBuilderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +85,7 @@
 		A2F4549A2F90332C00D0D7C0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A2F454B82F9066FC00D0D7C0 /* AuthState.swift */,
 				A2F454982F90332C00D0D7C0 /* AppState.swift */,
 				A2F454992F90332C00D0D7C0 /* CalendarEntry.swift */,
 			);
@@ -94,11 +103,14 @@
 		A2F454A02F90332C00D0D7C0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A2F454BA2F90671100D0D7C0 /* AuthView.swift */,
+				A2F454BB2F90671100D0D7C0 /* RestDaysView.swift */,
+				A2F454BC2F90671100D0D7C0 /* RoutineBuilderView.swift */,
 				A2F454B42F90379200D0D7C0 /* ProfileView.swift */,
 				A2F454B52F90379200D0D7C0 /* RecordsView.swift */,
 				A2F4549D2F90332C00D0D7C0 /* CalendarTimelineView.swift */,
 				A2F4549E2F90332C00D0D7C0 /* OnboardingView.swift */,
-							);
+			);
 			path = Views;
 			sourceTree = "<group>";
 		};
@@ -184,13 +196,17 @@
 		A1000000000000000043 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
-								A2F454A82F90332C00D0D7C0 /* AppState.swift in Sources */,
+				A2F454A82F90332C00D0D7C0 /* AppState.swift in Sources */,
 				A2F454A92F90332C00D0D7C0 /* OnboardingView.swift in Sources */,
 				A2F454AA2F90332C00D0D7C0 /* HapticManager.swift in Sources */,
 				A2F454AB2F90332C00D0D7C0 /* ContentView.swift in Sources */,
+				A2F454B92F9066FC00D0D7C0 /* AuthState.swift in Sources */,
 				A2F454AC2F90332C00D0D7C0 /* CalendarTimelineView.swift in Sources */,
 				A2F454B62F90379200D0D7C0 /* RecordsView.swift in Sources */,
 				A2F454B72F90379200D0D7C0 /* ProfileView.swift in Sources */,
+				A2F454BD2F90671100D0D7C0 /* RestDaysView.swift in Sources */,
+				A2F454BE2F90671100D0D7C0 /* AuthView.swift in Sources */,
+				A2F454BF2F90671100D0D7C0 /* RoutineBuilderView.swift in Sources */,
 				A2F454AD2F90332C00D0D7C0 /* CalendarManager.swift in Sources */,
 				A2F454AE2F90332C00D0D7C0 /* BecomingApp.swift in Sources */,
 				A2F454AF2F90332C00D0D7C0 /* CalendarEntry.swift in Sources */,
